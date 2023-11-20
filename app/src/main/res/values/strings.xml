@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PFI</string>
+    <string name="placeholder">PLACEHOLDER</string>
+
+    <string name="category_fruits">Fruits et Légumes</string>
+    <string name="category_cereals">Produits céréaliers et légumineuses</string>
+    <string name="category_diary">Produits laitiers</string>
+    <string name="category_meat">Viande, poisson et fruits de mer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
