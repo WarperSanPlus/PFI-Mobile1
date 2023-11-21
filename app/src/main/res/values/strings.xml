@@ -2,10 +2,22 @@
     <string name="app_name">PFI</string>
     <string name="placeholder">PLACEHOLDER</string>
 
+    <!-- NAVIGATION BAR -->
+    <string name="activity_liste_name">Liste</string>
+
+
+    <!-- SNACKBARS -->
+    <string name="login_error">Votre nom ou votre mot de passe est invalide</string>
+
+    <!-- LOGIN -->
+    <string name="login_titre">Connectez-vous! </string>
+    <string name="login_Entrez_nom">Entrez votre nom</string>
+    <string name="login_Entrez_mdp">Entrez votre mot de passe</string>
+    <string name="login_btn_connection">Connection</string>
+
+    <!-- CATEGORY -->
     <string name="category_fruits">Fruits et Légumes</string>
     <string name="category_cereals">Produits céréaliers et légumineuses</string>
     <string name="category_diary">Produits laitiers</string>
     <string name="category_meat">Viande, poisson et fruits de mer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

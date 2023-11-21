@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class ActivityListe extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

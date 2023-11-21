@@ -22,9 +22,11 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class CategoryDisplay extends Fragment {
-    private static final String ARG_PARAM1 = "CATEGORY_NAME";
+    private static final String CATEGORY_NAME = "CATEGORY_NAME";
+    private static final String CATEGORY_ARTICLES = "CATEGORY_ARTICLES";
 
     private int name;
+    private ArrayList<Article> articles;
 
     public CategoryDisplay() {
         // Required empty public constructor
@@ -40,7 +42,8 @@ public class CategoryDisplay extends Fragment {
         CategoryDisplay fragment = new CategoryDisplay();
         Bundle args = new Bundle();
 
-        args.putInt(ARG_PARAM1, category.getNomId());
+        args.putInt(CATEGORY_NAME, category.getNomId());
+        args.putSerializable(CATEGORY_ARTICLES, category.getArticles());
 
         fragment.setArguments(args);
         return fragment;
@@ -49,9 +52,12 @@ public class CategoryDisplay extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            name = getArguments().getInt(ARG_PARAM1);
-        }
+
+        if (getArguments() == null)
+            return;
+
+        name = getArguments().getInt(CATEGORY_NAME);
+        articles = (ArrayList<Article>) getArguments().getSerializable(CATEGORY_ARTICLES);
     }
 
     @Override
@@ -62,15 +68,6 @@ public class CategoryDisplay extends Fragment {
         TextView categoryName = v.findViewById(R.id.categoryNameTV);
         categoryName.setText(name);
 
-        // categoryDisplay_articlesGrid
-        // Get articles
-        ArrayList<Article> articles = new ArrayList<>();
-        articles.add(new Article(R.string.category_meat, R.string.category_diary));
-        articles.add(new Article(R.string.category_cereals, R.string.category_diary));
-        articles.add(new Article(R.string.category_cereals, R.string.category_diary));
-        articles.add(new Article(R.string.category_cereals, R.string.category_diary));
-        articles.add(new Article(R.string.category_cereals, R.string.category_diary));
-
         // Create fragments
         FragmentHelper.createFragments(
                 R.id.categoryDisplay_articlesGrid,
@@ -78,6 +75,11 @@ public class CategoryDisplay extends Fragment {
                 ArticleDisplay::newInstance,
                 getChildFragmentManager()
         );
+
+        // Hide empty categories
+        if (articles.size() == 0) {
+            v.setVisibility(View.GONE);
+        }
 
         return v;
     }

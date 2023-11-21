@@ -1,5 +1,7 @@
 package com.example.pfi.Classes;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
@@ -38,6 +40,8 @@ public class Category implements Comparable<Category> {
         articles.sort(Comparator.naturalOrder());
     }
 
+    public ArrayList<Article> getArticles() { return articles; }
+
     // endregion
 
     public Category(
@@ -47,7 +51,6 @@ public class Category implements Comparable<Category> {
     }
 
     // region Static
-
     /**
      *
      * @return Categories loaded by the application.
