@@ -1,14 +1,15 @@
-package com.example.pfi;
+package com.example.pfi.Classes;
 
-import androidx.annotation.IdRes;
+import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
 import com.example.pfi.Activities.MainActivity;
-import com.example.pfi.Classes.Category;
+import com.example.pfi.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Article implements Comparable<Article> {
+public class Article implements Comparable<Article>, Serializable {
     // region Nom
     private @StringRes int nomId = R.string.article_no_name;
 
@@ -30,19 +31,21 @@ public class Article implements Comparable<Article> {
     private String prix;
     // endregion
     // region Image
-    private @IdRes int imageId;
+    private @DrawableRes int imageId = R.drawable.logo_placeholder;
+
+    public @DrawableRes int getImageId() { return imageId; }
     // endregion
     // region Icon
-    private @IdRes int iconId;
+    private @DrawableRes int iconId = R.drawable.logo_placeholder;
 
-    public @IdRes int getIconId() { return iconId; }
+    public @DrawableRes int getIconId() { return iconId; }
     // endregion
     // region Categories
-    private @StringRes int[] categories;
+    private final @StringRes int[] categories;
 
     public boolean isArticleInCategory(Category category){
-        for (int i = 0; i < categories.length; i++) {
-            if (categories[i] == category.getNomId())
+        for (int j : categories) {
+            if (j == category.getNomId())
                 return true;
         }
         return false;

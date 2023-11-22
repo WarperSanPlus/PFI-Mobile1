@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.pfi.Article;
+import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Category;
 import com.example.pfi.Helper.FragmentHelper;
 import com.example.pfi.R;

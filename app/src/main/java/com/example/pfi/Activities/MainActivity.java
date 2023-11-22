@@ -3,10 +3,9 @@ package com.example.pfi.Activities;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 
+import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,9 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         Instance = this;
 
-        Intent toActivityList = new Intent(this, ActivityListe.class);
-
-        startActivity(toActivityList);
+        IntentHelper.closeAndMove(this, ActivityListe.class);
     }
 
     // region Static

@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.pfi.Classes.Client;
+import com.example.pfi.Config;
+import com.example.pfi.Helper.IntentHelper;
+import com.example.pfi.Logger;
 import com.example.pfi.R;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -19,6 +22,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        if (Config.AUTOMATIC_LOGIN) {
+            Logger.log("*** Automatically logged in ***");
+            onSuccessfulLogin("DEBUG_CLIENT", "DEFAULT");
+            return;
+        }
 
         // Récupération des views
         edit_nom = findViewById(R.id.login_edit_nom);
@@ -53,9 +62,13 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        Intent versListeÉpicerie = new Intent(this, MainActivity.class);
-
-        Client client = new Client(nom, mdp);
-        startActivity(versListeÉpicerie);
+        onSuccessfulLogin(nom, mdp);
     }
+
+    private void onSuccessfulLogin(String name, String password) {
+        Client client = new Client(name, password);
+
+        IntentHelper.moveToActivity(this, MainActivity.class);
+    }
+
 }
