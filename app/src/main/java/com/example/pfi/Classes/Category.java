@@ -1,10 +1,9 @@
 package com.example.pfi.Classes;
 
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
+import com.example.pfi.Article;
 import com.example.pfi.Activities.MainActivity;
 import com.example.pfi.R;
 

@@ -1,5 +1,6 @@
 package com.example.pfi.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.DrawableRes;
@@ -10,7 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.pfi.Classes.Article;
+import com.example.pfi.Activities.ActivityListe;
+import com.example.pfi.Article;
 import com.example.pfi.R;
 
 /**
@@ -64,6 +66,14 @@ public class ArticleDisplay extends Fragment {
 
         TextView nameTV = v.findViewById(R.id.articleDisplay_nameTV);
         nameTV.setText(name);
+
+        v.setOnClickListener(view -> {
+            Activity a = this.getActivity();
+
+            if (a instanceof ActivityListe) {
+                ((ActivityListe) a).openDialog(new Article(R.string.category_cereals, R.string.category_meat));
+            }
+        });
 
         return v;
     }

@@ -1,18 +1,16 @@
-package com.example.pfi.Classes;
-
-import android.content.res.Resources;
+package com.example.pfi;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.StringRes;
 
 import com.example.pfi.Activities.MainActivity;
-import com.example.pfi.R;
+import com.example.pfi.Classes.Category;
 
 import java.util.ArrayList;
 
 public class Article implements Comparable<Article> {
     // region Nom
-    private @StringRes int nomId;
+    private @StringRes int nomId = R.string.article_no_name;
 
     public String getNom() {
         return MainActivity.getStringValue(nomId);
@@ -24,11 +22,9 @@ public class Article implements Comparable<Article> {
     }
     // endregion
     // region Description
-    private @StringRes int descriptionId;
+    private @StringRes int descriptionId = R.string.article_no_description;
 
-    public String getDescription() {
-        return MainActivity.getStringValue(descriptionId);
-    }
+    public String getDescription() { return MainActivity.getStringValue(descriptionId); }
     // endregion
     // region Prix
     private String prix;

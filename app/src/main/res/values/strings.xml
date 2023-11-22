@@ -2,6 +2,9 @@
     <string name="app_name">PFI</string>
     <string name="placeholder">PLACEHOLDER</string>
 
+    <string name="retour_txt">RETOUR</string>
+    <string name="show_details">Afficher les détails</string>
+
     <!-- NAVIGATION BAR -->
     <string name="activity_liste_name">Liste</string>
 
@@ -20,4 +23,9 @@
     <string name="category_cereals">Produits céréaliers et légumineuses</string>
     <string name="category_diary">Produits laitiers</string>
     <string name="category_meat">Viande, poisson et fruits de mer</string>
+
+    <!-- ARTICLE -->
+    <string name="article_no_name">No Name</string>
+    <string name="article_no_description">No description</string>
+
 </resources>

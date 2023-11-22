@@ -2,15 +2,15 @@ package com.example.pfi.Activities;
 
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.example.pfi.Classes.Article;
+import com.example.pfi.Article;
 import com.example.pfi.Classes.Category;
+import com.example.pfi.Dialogs.ProductPreviewDialog;
 import com.example.pfi.Fragments.CategoryDisplay;
 import com.example.pfi.Helper.FragmentHelper;
-import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 import java.util.ArrayList;
@@ -57,5 +57,11 @@ public class ActivityListe extends AppCompatActivity {
      */
     private void displayCategories(ArrayList<Category> categories, @IdRes int parent) {
         FragmentHelper.createFragments(parent, categories, CategoryDisplay::newInstance, this);
+    }
+
+    public void openDialog(Article article) {
+        DialogFragment dialog = new ProductPreviewDialog(article);
+
+        dialog.show(getSupportFragmentManager(), this.toString());
     }
 }
