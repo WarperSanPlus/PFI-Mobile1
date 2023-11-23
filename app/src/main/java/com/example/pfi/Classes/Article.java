@@ -11,7 +11,6 @@ import com.example.pfi.R;
 import org.xmlpull.v1.XmlPullParser;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Article implements Comparable<Article>, Serializable {
     // region Nom
@@ -63,6 +62,19 @@ public class Article implements Comparable<Article>, Serializable {
 
         iconId = i;
     }
+    // endregion
+    // region Quantité
+
+    private int quantité;
+
+    public void replaceArticle(int amount) {
+        quantité += amount;
+    }
+
+    public void takeArticle(int amount) {
+        quantité -= amount;
+    }
+
     // endregion
 
     private Article(
