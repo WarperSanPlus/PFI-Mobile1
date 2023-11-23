@@ -13,9 +13,12 @@
         android:theme="@style/Theme.PFI"
         tools:targetApi="31">
         <activity
-            android:theme="@android:style/Theme.Holo.Dialog"
-            android:name=".Activities.ProductPreviewActivity"
+            android:name=".Activities.ActivityProductDetails"
             android:exported="false" />
+        <activity
+            android:name=".Activities.ProductPreviewActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Holo.Dialog" />
         <activity
             android:name=".Activities.LoginActivity"
             android:exported="true">

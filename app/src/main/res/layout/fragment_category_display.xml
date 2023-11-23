@@ -22,10 +22,12 @@
                 android:id="@+id/categoryNameTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"
                 android:text="@string/placeholder"
+                android:textAlignment="textStart"
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
 
@@ -35,6 +37,7 @@
             android:id="@+id/categoryDisplay_articlesGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             app:columnCount="2"
             app:useDefaultMargins="true" />
 
@@ -42,7 +45,7 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginVertical="24dp"
+            android:layout_marginTop="10dp"
             android:background="?android:attr/listDivider" />
     </LinearLayout>
 

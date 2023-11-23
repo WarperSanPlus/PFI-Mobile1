@@ -11,10 +11,10 @@ import com.example.pfi.Dialogs.ProductPreviewDialog;
 import com.example.pfi.Fragments.CategoryDisplay;
 import com.example.pfi.Helper.DialogHelper;
 import com.example.pfi.Helper.FragmentHelper;
+import com.example.pfi.Helper.HeaderBarHelper;
 import com.example.pfi.R;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class ActivityListe extends AppCompatActivity {
     @Override
@@ -22,34 +22,9 @@ public class ActivityListe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste);
 
-        displayCategories(load(), R.id.listeActivity_itemListe);
-    }
+        HeaderBarHelper.setHeaderBar(this, R.string.activity_liste_name);
 
-    private ArrayList<Category> load() {
-        // Get categories
-        ArrayList<Category> categories = Category.loadCategories();
-
-        // Get articles
-        ArrayList<Article> articles = Article.loadArticles();
-
-        // Put articles in corresponding categories
-        for (Article article : articles) {
-            for (Category category : categories) {
-                if (!article.isArticleInCategory(category))
-                    continue;
-                category.addArticle(article);
-            }
-        }
-
-        // Sort categories
-        categories.sort(Comparator.naturalOrder());
-
-        // Sort articles
-        for (Category c : categories) {
-            c.sortArticles();
-        }
-
-        return categories;
+        displayCategories(Category.loadCategories(), R.id.listeActivity_itemListe);
     }
 
     /**

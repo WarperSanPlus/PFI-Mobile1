@@ -7,7 +7,8 @@
 
     <!-- NAVIGATION BAR -->
     <string name="activity_liste_name">Liste</string>
-
+    <string name="navigation_panier">Voir mon panier</string>
+    <string name="navigation_menu_langue">Menu langue</string>
 
     <!-- SNACKBARS -->
     <string name="login_error">Votre nom ou votre mot de passe est invalide</string>
@@ -28,4 +29,22 @@
     <string name="article_no_name">No Name</string>
     <string name="article_no_description">No description</string>
 
+    <string name="article_name_banane">banane</string>
+    <string name="article_name_carotte">carotte</string>
+    <string name="article_name_pomme">pomme</string>
+    <string name="article_name_raisin">raisin</string>
+    <string name="article_name_peche">pêche</string>
+
+    <string name="article_name_pois">pois</string>
+    <string name="article_name_pain">pain</string>
+    <string name="article_name_mais">maïs</string>
+
+    <string name="article_name_lait">lait</string>
+    <string name="article_name_beurre">beurre</string>
+    <string name="article_name_yaourt">yaourt</string>
+    <string name="article_name_fromage">fromage</string>
+
+    <string name="article_name_viande">viande</string>
+    <string name="article_name_poisson">poisson</string>
+    <string name="article_name_homard">homard</string>
 </resources>

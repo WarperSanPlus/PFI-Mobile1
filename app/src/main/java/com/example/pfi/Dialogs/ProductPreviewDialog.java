@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 
-import com.example.pfi.Activities.LoginActivity;
+import com.example.pfi.Activities.ActivityProductDetails;
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.R;
@@ -35,7 +35,12 @@ public class ProductPreviewDialog extends DialogFragment {
         v.findViewById(R.id.productPreview_retourBtn).setOnClickListener(view -> this.dismiss());
         v.findViewById(R.id.productPreview_moreDetailsBtn).setOnClickListener(view -> {
             this.dismiss(); // Close dialog
-            IntentHelper.moveToActivity(this.getActivity(), LoginActivity.class);
+
+            // Redirect to target
+            Bundle extras = new Bundle();
+            extras.putSerializable(ActivityProductDetails.SELECTED_ARTICLE, article);
+
+            IntentHelper.moveToActivity(this.getActivity(), ActivityProductDetails.class, extras);
         });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -56,6 +61,6 @@ public class ProductPreviewDialog extends DialogFragment {
         productDescriptionTV.setText(targetArticle.getDescription());
 
         ImageView productImage = v.findViewById(R.id.productPreview_image);
-        productImage.setImageResource(targetArticle.getImageId());
+        productImage.setImageResource(targetArticle.getIconId());
     }
 }

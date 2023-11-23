@@ -2,15 +2,17 @@ package com.example.pfi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Client;
 import com.example.pfi.Config;
 import com.example.pfi.Helper.IntentHelper;
+import com.example.pfi.Helper.ResourcesManager;
+import com.example.pfi.Helper.XMLHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -22,6 +24,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ResourcesManager.Context = this;
+
 
         if (Config.AUTOMATIC_LOGIN) {
             Logger.log("*** Automatically logged in ***");

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<categories>
+    <!-- Fruits & Légumes -->
+    <category>
+        <name>category_fruits</name>
+        <articles>
+            <!-- Banane -->
+            <article>
+                <icon>article_banane</icon>
+                <displayName>article_name_banane</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Carotte -->
+            <article>
+                <icon>article_carotte</icon>
+                <displayName>article_name_carotte</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Pomme -->
+            <article>
+                <icon>article_pomme</icon>
+                <displayName>article_name_pomme</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Raisin -->
+            <article>
+                <icon>article_raisin</icon>
+                <displayName>article_name_raisin</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Peche -->
+            <article>
+                <icon>article_peche</icon>
+                <displayName>article_name_peche</displayName>
+                <description></description>
+                <price></price>
+            </article>
+        </articles>
+    </category>
+
+    <!-- Céréales et légumineuses -->
+    <category>
+        <name>category_cereals</name>
+        <articles>
+            <!-- Pois -->
+            <article>
+                <icon>article_pois</icon>
+                <displayName>article_name_pois</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Pain -->
+            <article>
+                <icon>article_pain</icon>
+                <displayName>article_name_pain</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Mais -->
+            <article>
+                <icon>article_mais</icon>
+                <displayName>article_name_mais</displayName>
+                <description></description>
+                <price></price>
+            </article>
+        </articles>
+    </category>
+
+    <!-- Produit laitiers -->
+    <category>
+        <name>category_diary</name>
+        <articles>
+            <!-- Lait -->
+            <article>
+                <icon>article_lait</icon>
+                <displayName>article_name_lait</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Beurre -->
+            <article>
+                <icon>article_beurre</icon>
+                <displayName>article_name_beurre</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Yaourt -->
+            <article>
+                <icon>article_yaourt</icon>
+                <displayName>article_name_yaourt</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Fromage -->
+            <article>
+                <icon>article_fromage</icon>
+                <displayName>article_name_fromage</displayName>
+                <description></description>
+                <price></price>
+            </article>
+        </articles>
+    </category>
+
+    <!-- Viandes, poisson et fruits de mer -->
+    <category>
+        <name>category_meat</name>
+        <articles>
+            <!-- Viande -->
+            <article>
+                <icon>article_viande</icon>
+                <displayName>article_name_viande</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Poisson -->
+            <article>
+                <icon>article_poisson</icon>
+                <displayName>article_name_poisson</displayName>
+                <description></description>
+                <price></price>
+            </article>
+
+            <!-- Homard -->
+            <article>
+                <icon>article_homard</icon>
+                <displayName>article_name_homard</displayName>
+                <description></description>
+                <price></price>
+            </article>
+        </articles>
+    </category>
+</categories>
