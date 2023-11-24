@@ -34,6 +34,9 @@ public class ActivityListe extends AppCompatActivity {
         FragmentHelper.createFragments(parent, categories, CategoryDisplay::newInstance, this);
     }
 
+    /**
+     * Opens a ProductPreviewDialog for the given article.
+     */
     public void openDialog(Article article) {
         DialogHelper.openDialog(() -> new ProductPreviewDialog(article), getSupportFragmentManager(), this.toString());
     }

@@ -42,7 +42,10 @@ public class CategoryDisplay extends Fragment {
         CategoryDisplay fragment = new CategoryDisplay();
         Bundle args = new Bundle();
 
+        // Put the name id of the given category in the bundle
         args.putInt(CATEGORY_NAME, category.getNomId());
+
+        // Put the articles of the given category in the bundle
         args.putSerializable(CATEGORY_ARTICLES, category.getArticles());
 
         fragment.setArguments(args);
@@ -53,11 +56,10 @@ public class CategoryDisplay extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() == null)
-            return;
-
-        name = getArguments().getInt(CATEGORY_NAME);
-        articles = (ArrayList<Article>) getArguments().getSerializable(CATEGORY_ARTICLES);
+        if (getArguments() != null) {
+            name = getArguments().getInt(CATEGORY_NAME);
+            articles = (ArrayList<Article>) getArguments().getSerializable(CATEGORY_ARTICLES);
+        }
     }
 
     @Override

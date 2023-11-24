@@ -27,11 +27,10 @@ public class LoginActivity extends AppCompatActivity {
 
         ResourcesManager.Context = this;
 
-
+        // if automatic login is checked
         if (Config.AUTOMATIC_LOGIN) {
             Logger.log("*** Automatically logged in ***");
             onSuccessfulLogin("DEBUG_CLIENT", "DEFAULT");
-            return;
         }
 
         // Récupération des views
@@ -43,22 +42,13 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(this::onConnectionBtnClicked);
     }
 
-    /**
-     *
-     * @param mdpDuClient  Parameter 1 -> mdp dans le editText
-     * @return boolean si le mdp est correct
-     */
-    private boolean mdpCorrect(String mdpDuClient) {
-        return mdpDuClient.equals("Password");
-    }
-
     private void onConnectionBtnClicked(View view) {
         // Récupération nom & mot de passe du client
-        String nom = edit_nom.getText().toString();
-        String mdp = edit_mdp.getText().toString();
+        String username = edit_nom.getText().toString();
+        String password = edit_mdp.getText().toString();
 
         // Vérification du mot de passe (par défaut: Password)
-        if (!mdpCorrect(mdp)){
+        if (!Client.isPasswordValid(username, password)){
             Snackbar.make(
                     findViewById(R.id.login_layout1),
                     getString(R.string.login_error),
@@ -67,13 +57,12 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        onSuccessfulLogin(nom, mdp);
+        onSuccessfulLogin(username, password);
     }
 
     private void onSuccessfulLogin(String name, String password) {
-        Client client = new Client(name, password);
+        Client.setClient(name);
 
-        IntentHelper.moveToActivity(this, MainActivity.class);
+        IntentHelper.moveToActivity(this, ActivityListe.class);
     }
-
 }

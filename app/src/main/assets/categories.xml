@@ -8,40 +8,40 @@
             <article>
                 <icon>article_banane</icon>
                 <displayName>article_name_banane</displayName>
-                <description></description>
-                <price></price>
+                <description>article_banane_desc</description>
+                <price>article_banane_prix</price>
             </article>
 
             <!-- Carotte -->
             <article>
                 <icon>article_carotte</icon>
                 <displayName>article_name_carotte</displayName>
-                <description></description>
-                <price></price>
+                <description>article_carotte_desc</description>
+                <price>article_carotte_prix</price>
             </article>
 
             <!-- Pomme -->
             <article>
                 <icon>article_pomme</icon>
                 <displayName>article_name_pomme</displayName>
-                <description></description>
-                <price></price>
+                <description>article_pomme_desc</description>
+                <price>article_pomme_prix</price>
             </article>
 
             <!-- Raisin -->
             <article>
                 <icon>article_raisin</icon>
                 <displayName>article_name_raisin</displayName>
-                <description></description>
-                <price></price>
+                <description>article_raisin_desc</description>
+                <price>article_raisin_prix</price>
             </article>
 
             <!-- Peche -->
             <article>
                 <icon>article_peche</icon>
                 <displayName>article_name_peche</displayName>
-                <description></description>
-                <price></price>
+                <description>article_peche_desc</description>
+                <price>article_peche_prix</price>
             </article>
         </articles>
     </category>
@@ -54,24 +54,24 @@
             <article>
                 <icon>article_pois</icon>
                 <displayName>article_name_pois</displayName>
-                <description></description>
-                <price></price>
+                <description>article_pois_desc</description>
+                <price>article_pois_prix</price>
             </article>
 
             <!-- Pain -->
             <article>
                 <icon>article_pain</icon>
                 <displayName>article_name_pain</displayName>
-                <description></description>
-                <price></price>
+                <description>article_pain_desc</description>
+                <price>article_pain_prix</price>
             </article>
 
             <!-- Mais -->
             <article>
                 <icon>article_mais</icon>
                 <displayName>article_name_mais</displayName>
-                <description></description>
-                <price></price>
+                <description>article_mais_desc</description>
+                <price>article_mais_prix</price>
             </article>
         </articles>
     </category>
@@ -84,32 +84,32 @@
             <article>
                 <icon>article_lait</icon>
                 <displayName>article_name_lait</displayName>
-                <description></description>
-                <price></price>
+                <description>article_lait_desc</description>
+                <price>article_lait_prix</price>
             </article>
 
             <!-- Beurre -->
             <article>
                 <icon>article_beurre</icon>
                 <displayName>article_name_beurre</displayName>
-                <description></description>
-                <price></price>
+                <description>article_beurre_desc</description>
+                <price>article_beurre_prix</price>
             </article>
 
             <!-- Yaourt -->
             <article>
                 <icon>article_yaourt</icon>
                 <displayName>article_name_yaourt</displayName>
-                <description></description>
-                <price></price>
+                <description>article_yaourt_desc</description>
+                <price>article_yaourt_prix</price>
             </article>
 
             <!-- Fromage -->
             <article>
                 <icon>article_fromage</icon>
                 <displayName>article_name_fromage</displayName>
-                <description></description>
-                <price></price>
+                <description>article_fromage_desc</description>
+                <price>article_fromage_prix</price>
             </article>
         </articles>
     </category>
@@ -122,24 +122,24 @@
             <article>
                 <icon>article_viande</icon>
                 <displayName>article_name_viande</displayName>
-                <description></description>
-                <price></price>
+                <description>article_viande_desc</description>
+                <price>article_viande_prix</price>
             </article>
 
             <!-- Poisson -->
             <article>
                 <icon>article_poisson</icon>
                 <displayName>article_name_poisson</displayName>
-                <description></description>
-                <price></price>
+                <description>article_poisson_desc</description>
+                <price>article_poisson_prix</price>
             </article>
 
             <!-- Homard -->
             <article>
                 <icon>article_homard</icon>
                 <displayName>article_name_homard</displayName>
-                <description></description>
-                <price></price>
+                <description>article_homard_desc</description>
+                <price>article_homard_prix</price>
             </article>
         </articles>
     </category>

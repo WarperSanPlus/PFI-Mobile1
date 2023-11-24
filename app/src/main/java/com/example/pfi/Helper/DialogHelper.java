@@ -9,6 +9,12 @@ import com.example.pfi.Logger;
 import java.util.concurrent.Callable;
 
 public abstract class DialogHelper {
+    /**
+     * Opens the dialog created by the callable and shows it.
+     * @param createDialog
+     * @param fragmentManager
+     * @param tag
+     */
     public static void openDialog(
             Callable<DialogFragment> createDialog,
             FragmentManager fragmentManager,

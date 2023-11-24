@@ -40,6 +40,7 @@ public class ArticleDisplay extends Fragment {
         ArticleDisplay fragment = new ArticleDisplay();
         Bundle args = new Bundle();
 
+        // Put target article in the bundle
         args.putSerializable(ARG_PARAM1, article);
 
         fragment.setArguments(args);
@@ -51,33 +52,31 @@ public class ArticleDisplay extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
+            // Get targetarticle from the bundle
             article = (Article) getArguments().getSerializable(ARG_PARAM1);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_article_display, container, false);
 
-        // Set values
+        // Set the display name
         TextView nameTV = v.findViewById(R.id.articleDisplay_nameTV);
         nameTV.setText(article.getNom());
 
+        // Set the icon
         ImageView iconImage = v.findViewById(R.id.articleDisplay_iconImage);
         iconImage.setImageResource(article.getIconId());
 
-        // Set onClick
+        // Set onClick to open the dialog
         v.setOnClickListener(view -> {
             Activity a = this.getActivity();
 
-            //if (a == null)
-            //    return;
             if (!(a instanceof ActivityListe))
                 return;
 
-            //a.openDialog(article);
             ((ActivityListe) a).openDialog(article);
         });
 

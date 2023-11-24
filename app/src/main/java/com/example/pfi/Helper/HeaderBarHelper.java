@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.StringRes;
 
+import com.example.pfi.Activities.ActivityPanier;
 import com.example.pfi.R;
 
 import java.util.Locale;
@@ -27,7 +28,7 @@ public abstract class HeaderBarHelper {
         // Set buttons
         ImageButton panierBtn = activity.findViewById(R.id.headerBar_panierBtn);
         panierBtn.setOnClickListener(v -> {
-            // ...
+            IntentHelper.moveToActivity(activity, ActivityPanier.class);
         });
 
         ImageButton menuBtn = activity.findViewById(R.id.headerBar_menuBtn);

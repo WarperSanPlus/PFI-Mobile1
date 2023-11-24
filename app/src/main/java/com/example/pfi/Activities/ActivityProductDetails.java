@@ -16,6 +16,6 @@ public class ActivityProductDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
-        //HeaderBarHelper.setHeaderBar(this, R.string.category_fruits);
+        HeaderBarHelper.setHeaderBar(this, R.string.activity_product_details_name);
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_column="2"
     android:layout_marginHorizontal="12dp"
     android:paddingBottom="8dp"
     tools:context=".Fragments.CategoryDisplay">
@@ -42,7 +43,6 @@
             app:useDefaultMargins="true" />
 
         <View
-            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="10dp"

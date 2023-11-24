@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
 import com.example.pfi.Helper.ResourcesManager;
+import com.example.pfi.Helper.StringHelper;
 import com.example.pfi.Helper.XMLHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
@@ -21,10 +22,7 @@ public class Article implements Comparable<Article>, Serializable {
     }
 
     private void setNom(@StringRes int nomId) {
-        if (nomId == 0)
-            nomId = R.string.article_no_name;
-
-        this.nomId = nomId;
+        this.nomId = StringHelper.checkStringId(nomId, R.string.article_no_name);
     }
 
     @Override
@@ -45,7 +43,13 @@ public class Article implements Comparable<Article>, Serializable {
     }
     // endregion
     // region Prix
-    private String prix;
+    private @StringRes int prix = R.string.article_no_price;
+
+    public String getPrix() { return ResourcesManager.getString(prix); }
+
+    private void setPrix(@StringRes int prixId) {
+        this.prix = StringHelper.checkStringId(prixId, R.string.article_no_price);
+    }
     // endregion
     // region Icon
     private @DrawableRes int iconId = R.drawable.logo_placeholder;
@@ -81,13 +85,13 @@ public class Article implements Comparable<Article>, Serializable {
             @StringRes int nomId,
             @StringRes int descriptionId,
             String iconName,
-            String prix
+            @StringRes int prixId
     ){
         setNom(nomId);
         setDescription(descriptionId);
+        setPrix(prixId);
 
         this.initializeIconId(iconName);
-        this.prix = prix;
     }
 
     // region Static
@@ -108,14 +112,19 @@ public class Article implements Comparable<Article>, Serializable {
                     continue;
 
                 String n = parser.getName();
-                if (n.equals("icon")) {
-                    icon = XMLHelper.readField(parser, "icon");
-                } else if (n.equals("displayName")) {
-                    displayName = XMLHelper.readField(parser, "displayName");
-                } else if (n.equals("description")) {
-                    description = XMLHelper.readField(parser, "description");
-                } else if (n.equals("price")) {
-                    price = XMLHelper.readField(parser, "price");
+                switch (n) {
+                    case "icon":
+                        icon = XMLHelper.readField(parser, n);
+                        break;
+                    case "displayName":
+                        displayName = XMLHelper.readField(parser, n);
+                        break;
+                    case "description":
+                        description = XMLHelper.readField(parser, n);
+                        break;
+                    case "price":
+                        price = XMLHelper.readField(parser, n);
+                        break;
                 }
             }
 
@@ -123,7 +132,7 @@ public class Article implements Comparable<Article>, Serializable {
                     ResourcesManager.getStringIdentifier(displayName),
                     ResourcesManager.getStringIdentifier(description),
                     icon,
-                    price
+                    ResourcesManager.getStringIdentifier(price)
             );
         } catch (Exception e) {
             throw new RuntimeException(e);

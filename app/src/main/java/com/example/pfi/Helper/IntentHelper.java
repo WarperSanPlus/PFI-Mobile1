@@ -14,6 +14,7 @@ public abstract class IntentHelper {
     public static <T extends Activity> void moveToActivity(Activity src, Class<T> destination, Bundle bundle) {
         Intent changeActivityIntent = new Intent(src, destination);
 
+        // Add bundle if needed
         if (bundle != null)
             changeActivityIntent.replaceExtras(bundle);
 

@@ -1,27 +1,30 @@
 package com.example.pfi.Classes;
 
 public class Client {
+    public static Client Instance = null;
+
     // region Nom
-    String nom;
+    String username;
 
-    public String getNom() {
-        return nom;
-    }
+    public String getUsername() { return username; }
 
-    public void setNom(String nom) { this.nom = nom; }
-    // endregion
-    // region Password
-    String mdp ;
-
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) { this.mdp = mdp; }
+    public void setUsername(String username) { this.username = username; }
     // endregion
 
-    public Client(String nom, String mdp) {
-        setNom(nom);
-        setMdp(mdp);
+    private Client(String username) {
+        setUsername(username);
     }
+
+    // region Static
+    public static void setClient(String nom) {
+        Instance = new Client(nom);
+    }
+
+    /**
+     * @return Is the given password valid for this username.
+     */
+    public static boolean isPasswordValid(String username, String password){
+        return password.equals("Password");
+    }
+    // endregion
 }
