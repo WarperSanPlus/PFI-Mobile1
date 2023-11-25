@@ -4,9 +4,11 @@ import android.app.Activity;
 
 import androidx.annotation.StringRes;
 
+import com.example.pfi.Helper.ResourcesManager;
+
 public class Translator {
-    public static String formatString(Activity activity, @StringRes int resId, Object...args) {
-        String text = activity.getString(resId); // Get text from id
+    public static String formatString(@StringRes int resId, Object...args) {
+        String text = ResourcesManager.getString(resId); // Get text from id
 
         // Replace arguments
         // ${0} est con => Popo est con

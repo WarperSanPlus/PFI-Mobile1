@@ -3,6 +3,7 @@ package com.example.pfi.Classes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
+import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.Helper.ResourcesManager;
 import com.example.pfi.Helper.StringHelper;
 import com.example.pfi.Helper.XMLHelper;
@@ -12,6 +13,7 @@ import com.example.pfi.R;
 import org.xmlpull.v1.XmlPullParser;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Article implements Comparable<Article>, Serializable {
     // region Nom
@@ -50,6 +52,8 @@ public class Article implements Comparable<Article>, Serializable {
     private void setPrix(@StringRes int prixId) {
         this.prix = StringHelper.checkStringId(prixId, R.string.article_no_price);
     }
+
+    public double getPrixDouble() { return 1; }
     // endregion
     // region Icon
     private @DrawableRes int iconId = R.drawable.logo_placeholder;
@@ -79,17 +83,22 @@ public class Article implements Comparable<Article>, Serializable {
         quantité -= amount;
     }
 
+    public int getQuantity() { return quantité; }
+
     // endregion
 
-    private Article(
+    public Article(
             @StringRes int nomId,
             @StringRes int descriptionId,
             String iconName,
-            @StringRes int prixId
+            @StringRes int prixId,
+            int quantity
     ){
         setNom(nomId);
         setDescription(descriptionId);
         setPrix(prixId);
+
+        quantité = quantity;
 
         this.initializeIconId(iconName);
     }
@@ -106,6 +115,7 @@ public class Article implements Comparable<Article>, Serializable {
             String displayName = "";
             String description = "";
             String price = "";
+            String quantity = "3"; // Default
 
             while (parser.next() != XmlPullParser.END_TAG) {
                 if (parser.getEventType() != XmlPullParser.START_TAG)
@@ -125,6 +135,9 @@ public class Article implements Comparable<Article>, Serializable {
                     case "price":
                         price = XMLHelper.readField(parser, n);
                         break;
+                    case "quantity":
+                        quantity = XMLHelper.readField(parser, n);
+                        break;
                 }
             }
 
@@ -132,7 +145,8 @@ public class Article implements Comparable<Article>, Serializable {
                     ResourcesManager.getStringIdentifier(displayName),
                     ResourcesManager.getStringIdentifier(description),
                     icon,
-                    ResourcesManager.getStringIdentifier(price)
+                    ResourcesManager.getStringIdentifier(price),
+                    Integer.parseInt(quantity)
             );
         } catch (Exception e) {
             throw new RuntimeException(e);

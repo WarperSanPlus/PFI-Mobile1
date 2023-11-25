@@ -3,8 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="main_color_fg">#4CAF50</color>
+    <color name="main_color_fg">#4CAF50</color> <!-- #6551D3 -->
     <color name="main_color_bg">#D84CAF50</color>
     <color name="main_title">#FFFFFF</color>
+
+    <color name="stock_running_out">#FFAE0909</color>
+    <color name="sufficient_stock">#FFA5FF25</color>
 
 </resources>

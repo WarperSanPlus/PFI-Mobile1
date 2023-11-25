@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.pfi.Abstract.AdaptorViewHolder;
+import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 public class ArticleViewHolder extends AdaptorViewHolder<Article> {

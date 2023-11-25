@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
@@ -37,4 +39,8 @@ public abstract class ResourcesManager {
     }
 
     // endregion
+
+    public static @ColorInt int getColor(@ColorRes int color) {
+        return getResources().getColor(color);
+    }
 }

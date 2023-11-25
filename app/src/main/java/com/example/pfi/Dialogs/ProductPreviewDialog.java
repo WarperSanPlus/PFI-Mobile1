@@ -1,5 +1,6 @@
 package com.example.pfi.Dialogs;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -13,7 +14,9 @@ import androidx.fragment.app.DialogFragment;
 import com.example.pfi.Activities.ActivityProductDetails;
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Helper.IntentHelper;
+import com.example.pfi.Helper.ResourcesManager;
 import com.example.pfi.R;
+import com.example.pfi.Translator;
 
 public class ProductPreviewDialog extends DialogFragment {
     private Article article;
@@ -74,5 +77,13 @@ public class ProductPreviewDialog extends DialogFragment {
         // Set product icon imageview
         ImageView productImage = v.findViewById(R.id.productPreview_image);
         productImage.setImageResource(targetArticle.getIconId());
+
+        // Set stock remaining textview
+        TextView stockTV = v.findViewById(R.id.productPreview_productStockAmount);
+        int quantity = targetArticle.getQuantity();
+        stockTV.setText(Translator.formatString(R.string.article_quantity_remaining, quantity));
+
+        stockTV.setTextColor(ResourcesManager.getColor(quantity <= 3 ? R.color.stock_running_out : R.color.sufficient_stock));
+
     }
 }

@@ -18,6 +18,7 @@
                 <displayName>article_name_carotte</displayName>
                 <description>article_carotte_desc</description>
                 <price>article_carotte_prix</price>
+                <quantity>5</quantity>
             </article>
 
             <!-- Pomme -->
