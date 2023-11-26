@@ -3,19 +3,20 @@ package com.example.pfi.Classes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
-import com.example.pfi.Helper.IntentHelper;
+import com.example.pfi.Abstract.Product;
 import com.example.pfi.Helper.ResourcesManager;
 import com.example.pfi.Helper.StringHelper;
 import com.example.pfi.Helper.XMLHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
+import com.example.pfi.Translator;
 
 import org.xmlpull.v1.XmlPullParser;
 
 import java.io.Serializable;
-import java.util.Random;
+import java.text.DecimalFormat;
 
-public class Article implements Comparable<Article>, Serializable {
+public class Article extends Product implements Comparable<Article> {
     // region Nom
     private @StringRes int nomId = R.string.article_no_name;
 
@@ -47,13 +48,25 @@ public class Article implements Comparable<Article>, Serializable {
     // region Prix
     private @StringRes int prix = R.string.article_no_price;
 
-    public String getPrix() { return ResourcesManager.getString(prix); }
+    public String getPrix() { return convertPrix(getPrixDouble()); }
 
     private void setPrix(@StringRes int prixId) {
         this.prix = StringHelper.checkStringId(prixId, R.string.article_no_price);
     }
 
-    public double getPrixDouble() { return 1; }
+    public double getPrixDouble() {
+        if (prix == R.string.article_no_price)
+            return 0;
+
+        String prixS = ResourcesManager.getString(prix);
+        return  prixS == null ? 0 : Double.parseDouble(prixS);
+    }
+
+    public static String convertPrix(double price) {
+        DecimalFormat f = new DecimalFormat("##.00");
+
+        return Translator.formatString(R.string.price_display, f.format(price));
+    }
     // endregion
     // region Icon
     private @DrawableRes int iconId = R.drawable.logo_placeholder;
@@ -71,21 +84,6 @@ public class Article implements Comparable<Article>, Serializable {
         iconId = i;
     }
     // endregion
-    // region Quantité
-
-    private int quantité;
-
-    public void replaceArticle(int amount) {
-        quantité += amount;
-    }
-
-    public void takeArticle(int amount) {
-        quantité -= amount;
-    }
-
-    public int getQuantity() { return quantité; }
-
-    // endregion
 
     public Article(
             @StringRes int nomId,
@@ -94,11 +92,11 @@ public class Article implements Comparable<Article>, Serializable {
             @StringRes int prixId,
             int quantity
     ){
+        super(quantity);
+
         setNom(nomId);
         setDescription(descriptionId);
         setPrix(prixId);
-
-        quantité = quantity;
 
         this.initializeIconId(iconName);
     }

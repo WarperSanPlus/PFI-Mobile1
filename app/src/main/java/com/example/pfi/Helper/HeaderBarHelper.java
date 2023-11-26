@@ -26,9 +26,9 @@ public abstract class HeaderBarHelper {
         headerContent.setText(title);
 
         // Set buttons
-        ImageButton panierBtn = activity.findViewById(R.id.headerBar_panierBtn);
+        ImageButton panierBtn = activity.findViewById(R.id.details_panierBtn);
         panierBtn.setOnClickListener(v -> {
-            IntentHelper.moveToActivity(activity, ActivityPanier.class);
+            IntentHelper.moveToActivityWithTransition(activity, ActivityPanier.class, null);
         });
 
         ImageButton menuBtn = activity.findViewById(R.id.headerBar_menuBtn);

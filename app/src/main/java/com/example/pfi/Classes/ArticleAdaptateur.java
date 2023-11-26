@@ -15,7 +15,7 @@ public class ArticleAdaptateur extends Adaptor<Article, ArticleViewHolder> {
 
     @Override
     protected int getLayout() {
-        return R.layout.une_item_panier;
+        return R.layout.panier_item_layout;
     }
 
     @Override

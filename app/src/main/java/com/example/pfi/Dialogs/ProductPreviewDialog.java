@@ -1,6 +1,5 @@
 package com.example.pfi.Dialogs;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -47,7 +46,7 @@ public class ProductPreviewDialog extends DialogFragment {
             Bundle extras = new Bundle();
             extras.putSerializable(ActivityProductDetails.SELECTED_ARTICLE, article);
 
-            IntentHelper.moveToActivity(this.getActivity(), ActivityProductDetails.class, extras);
+            IntentHelper.moveToActivityWithTransition(this.getActivity(), ActivityProductDetails.class, extras);
         });
 
         // Create the dialog builder
@@ -80,7 +79,7 @@ public class ProductPreviewDialog extends DialogFragment {
 
         // Set stock remaining textview
         TextView stockTV = v.findViewById(R.id.productPreview_productStockAmount);
-        int quantity = targetArticle.getQuantity();
+        int quantity = targetArticle.getStockAmount();
         stockTV.setText(Translator.formatString(R.string.article_quantity_remaining, quantity));
 
         stockTV.setTextColor(ResourcesManager.getColor(quantity <= 3 ? R.color.stock_running_out : R.color.sufficient_stock));

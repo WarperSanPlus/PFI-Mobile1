@@ -11,6 +11,7 @@ import com.example.pfi.Abstract.Adaptor;
 import com.example.pfi.Abstract.AdaptorViewHolder;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import kotlin.jvm.functions.Function2;
 

@@ -7,12 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Client;
 import com.example.pfi.Config;
 import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.Helper.ResourcesManager;
-import com.example.pfi.Helper.XMLHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -63,6 +61,6 @@ public class LoginActivity extends AppCompatActivity {
     private void onSuccessfulLogin(String name, String password) {
         Client.setClient(name);
 
-        IntentHelper.moveToActivity(this, ActivityListe.class);
+        IntentHelper.moveToActivity(this, ActivityListe.class, null);
     }
 }

@@ -2,30 +2,36 @@ package com.example.pfi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.pfi.Classes.Article;
-import com.example.pfi.Classes.PanierArticle;
+import com.example.pfi.Classes.Client;
+import com.example.pfi.Helper.CardUIHelper;
+import com.example.pfi.Helper.ThreadHelper;
 import com.example.pfi.R;
 
-import java.util.ArrayList;
-
 public class ActivityPanier extends AppCompatActivity {
+
+    TextView totalTV;
+
+    View panierCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panier);
 
-        PanierArticle p = new PanierArticle();
-
         // Set 'retour' button
         ImageButton retourBtn = findViewById(R.id.panier_btnRetour);
-        retourBtn.setOnClickListener(v -> this.finish());
+        retourBtn.setOnClickListener(v -> CardUIHelper.endActivity(this, panierCard));
 
         // Set 'vider panier' button
         Button viderPanierBtn = findViewById(R.id.panier_btnVider);
@@ -35,21 +41,16 @@ public class ActivityPanier extends AppCompatActivity {
         Button finishedBuyingBtn = findViewById(R.id.panier_btnCaisse);
         finishedBuyingBtn.setOnClickListener(this::onFinishBuyingClicked);
 
-        /*ArrayList<Article> articles = new ArrayList<>();
-        articles.add(new Article(R.string.article_name_pomme, R.string.article_pomme_desc, "article_pomme", R.string.article_pomme_prix));
-        articles.add(new Article(R.string.article_name_pomme, R.string.article_pomme_desc, "article_pomme", R.string.article_pomme_prix));
-        articles.add(new Article(R.string.article_name_pomme, R.string.article_pomme_desc, "article_pomme", R.string.article_pomme_prix));
-        articles.add(new Article(R.string.article_name_pomme, R.string.article_pomme_desc, "article_pomme", R.string.article_pomme_prix));
-        articles.add(new Article(R.string.article_name_pomme, R.string.article_pomme_desc, "article_pomme", R.string.article_pomme_prix));
-        articles.add(new Article(R.string.article_name_pomme, R.string.article_pomme_desc, "article_pomme", R.string.article_pomme_prix));
-        p.addItems(articles);*/
+        Client.getPanier().setArticleAdapteur(this, findViewById(R.id.recyclePanier));
 
-        p.addItem(new Article(R.string.article_name_pomme, R.string.article_pomme_desc, "article_pomme", R.string.article_pomme_prix, 2));
+        totalTV = findViewById(R.id.panier_txt_prixTotal);
+        Client.getPanier().addOnUpdateListener(this::onPanierUpdated);
 
-        p.setArticleAdapteur(this, findViewById(R.id.recyclePanier));
+        onPanierUpdated();
 
-        TextView totalTV = findViewById(R.id.panier_txt_prixTotal);
-        totalTV.setText(p.getTotal());
+        panierCard = findViewById(R.id.panier_card);
+        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_card);
+        panierCard.startAnimation(aniSlide);
     }
 
     private void onClearBasketClicked(View v) {
@@ -58,5 +59,9 @@ public class ActivityPanier extends AppCompatActivity {
 
     private void onFinishBuyingClicked(View v) {
         // ...
+    }
+
+    private void onPanierUpdated() {
+        totalTV.setText(Client.getPanier().getTotal());
     }
 }

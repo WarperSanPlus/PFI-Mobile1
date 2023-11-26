@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pfi.Abstract.Panier;
 import com.example.pfi.Helper.RecyclerViewHelper;
+import com.example.pfi.Logger;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class PanierArticle extends Panier<Article> {
 
@@ -18,7 +22,7 @@ public class PanierArticle extends Panier<Article> {
         RecyclerViewHelper.setRecyclerView(
             src,
             recyclerView,
-            items,
+            getItems(),
             ArticleAdaptateur::new
         );
 
@@ -31,10 +35,12 @@ public class PanierArticle extends Panier<Article> {
     public String getTotal() {
         double total = 0;
 
-        for (Article a : items)
-            total += a.getPrixDouble();
+        ArrayList<Article> items = getItems();
 
-        return total + "$";
+        for (Article a : items)
+            total += a.getPrixDouble() * Client.getPanier().getItemAmount(a);
+
+        return Article.convertPrix(total);
     }
 
     // endregion

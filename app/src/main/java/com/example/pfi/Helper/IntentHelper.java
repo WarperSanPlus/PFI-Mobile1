@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.pfi.Activities.CardTransitionActivity;
 import com.example.pfi.Config;
 import com.example.pfi.Logger;
+import com.example.pfi.R;
 
 public abstract class IntentHelper {
     /**
@@ -14,7 +16,6 @@ public abstract class IntentHelper {
     public static <T extends Activity> void moveToActivity(Activity src, Class<T> destination, Bundle bundle) {
         Intent changeActivityIntent = new Intent(src, destination);
 
-        // Add bundle if needed
         if (bundle != null)
             changeActivityIntent.replaceExtras(bundle);
 
@@ -24,18 +25,21 @@ public abstract class IntentHelper {
             Logger.log("Moved from \"" + src.getClass().getName() + "\" to \"" + destination.getName() + "\".");
     }
 
-    /**
-     * Moves to the next activity.
-     */
-    public static <T extends Activity> void moveToActivity(Activity src, Class<T> destination) {
-        moveToActivity(src, destination, null);
+    public static <T extends Activity> void moveToActivityWithTransition(Activity src, Class<T> destination, Bundle bundle) {
+        if (bundle == null)
+            bundle = new Bundle();
+
+        bundle.putSerializable(CardTransitionActivity.DESTINATION_ACTIVITY, destination);
+
+        moveToActivity(src, CardTransitionActivity.class, bundle);
+        src.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     /**
      * Moves to the next activity and closes the current one.
      */
-    public static <T extends Activity> void closeAndMove(Activity src, Class<T> destination) {
-        moveToActivity(src, destination);
+    public static <T extends Activity> void closeAndMove(Activity src, Class<T> destination, Bundle bundle) {
+        moveToActivity(src, destination, bundle);
         src.finish();
     }
 }

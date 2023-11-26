@@ -13,6 +13,12 @@
         android:theme="@style/Theme.PFI"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.CardTransitionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.TransitionActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.ActivityPanier"
             android:exported="false" />
         <activity
