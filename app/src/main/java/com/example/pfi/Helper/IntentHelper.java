@@ -9,6 +9,9 @@ import com.example.pfi.Config;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
 
+/**
+ * Useful for move between activities
+ */
 public abstract class IntentHelper {
     /**
      * Moves to the next activity and shares the given bundle to the destination.

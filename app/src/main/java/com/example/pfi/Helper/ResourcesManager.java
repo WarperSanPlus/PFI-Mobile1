@@ -9,6 +9,9 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
+/**
+ * Useful for getting resources from anywhere
+ */
 public abstract class ResourcesManager {
     // region Context
     public static Context Context;

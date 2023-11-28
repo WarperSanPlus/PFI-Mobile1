@@ -9,6 +9,9 @@ import com.example.pfi.Logger;
 
 import java.io.IOException;
 
+/**
+ * Useful to play audio files
+ */
 public abstract class SoundHelper {
 
     public static MediaPlayer playSound(MediaPlayer mp, @RawRes int sound_file_id) {

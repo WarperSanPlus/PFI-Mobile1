@@ -9,6 +9,9 @@ import androidx.fragment.app.FragmentTransaction;
 import java.util.ArrayList;
 import java.util.function.Function;
 
+/**
+ * Useful for creating fragments
+ */
 public abstract class FragmentHelper {
     /**
      * Creates fragments for every object in objects by executing the given action.

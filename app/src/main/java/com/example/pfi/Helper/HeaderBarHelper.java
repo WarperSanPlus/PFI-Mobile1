@@ -17,9 +17,10 @@ import com.example.pfi.R;
 
 import java.util.Locale;
 
+/**
+ * Useful for displaying the header bar
+ */
 public abstract class HeaderBarHelper {
-    private static boolean isEnglish = false;
-
     public static void setHeaderBar(Activity activity, @StringRes int title) {
         // Set title
         TextView headerContent = activity.findViewById(R.id.headerBar_textContent);
@@ -41,7 +42,7 @@ public abstract class HeaderBarHelper {
 
         popupMenu.getMenu()
                 .findItem(R.id.more_options_lang_fr_en)
-                .setTitle(getCurrentLang(ctx).getDisplayName());
+                .setTitle(getCurrentLang().getDisplayName());
 
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
@@ -60,10 +61,11 @@ public abstract class HeaderBarHelper {
         // ...
     }
 
-    private static Locale getCurrentLang(Context ctx) {
-        return ctx.getResources().getConfiguration().getLocales().get(0);
+    private static Locale getCurrentLang() {
+        return ResourcesManager.getResources().getConfiguration().getLocales().get(0);
     }
 
+    // idk if it works
     private static void setLang(String languageCode, Context ctx) {
         Locale locale = new Locale(languageCode);
         Locale.setDefault(locale);

@@ -14,6 +14,9 @@ import java.util.ArrayList;
 
 import kotlin.jvm.functions.Function2;
 
+/**
+ * Useful for setting a recycler view
+ */
 public abstract class RecyclerViewHelper {
     public static <T, U extends AdaptorViewHolder<T>> void setRecyclerView(
             Activity activity,

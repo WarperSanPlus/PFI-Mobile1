@@ -12,7 +12,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.function.Function;
 
-public class XMLHelper {
+/**
+ * Useful for extracting classes from a XML file
+ */
+public abstract class XMLHelper {
     public static <T> ArrayList<T> initializeObjects(
             String fileName,
             String mainTag,

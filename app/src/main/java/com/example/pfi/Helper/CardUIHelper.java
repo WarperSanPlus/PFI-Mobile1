@@ -7,6 +7,9 @@ import android.view.animation.AnimationUtils;
 
 import com.example.pfi.R;
 
+/**
+ * Useful to move to an activity compose of a "Card"
+ */
 public abstract class CardUIHelper {
     public static void endActivity(Activity src, View card) {
         Animation aniSlide = AnimationUtils.loadAnimation(src.getApplicationContext(), R.anim.slide_out_card);
