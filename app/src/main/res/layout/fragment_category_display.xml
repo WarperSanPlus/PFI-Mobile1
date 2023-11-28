@@ -28,7 +28,7 @@
                 android:layout_weight="1"
                 android:text="@string/placeholder"
                 android:textAlignment="textStart"
-                android:textColor="@color/main_title"
+                android:textColor="?attr/main_title"
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
 

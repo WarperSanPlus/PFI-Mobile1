@@ -9,7 +9,7 @@
         android:id="@+id/headerBar_navView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/main_color_fg"
+        android:background="?attr/main_color_fg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
@@ -36,7 +36,7 @@
                 android:layout_marginStart="12dp"
                 android:gravity="center_vertical"
                 android:text="@string/placeholder"
-                android:textColor="@color/main_title"
+                android:textColor="?attr/main_title"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

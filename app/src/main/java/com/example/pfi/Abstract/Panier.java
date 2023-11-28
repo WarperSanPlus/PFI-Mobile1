@@ -41,7 +41,7 @@ public abstract class Panier<T extends Product> {
 
     private PanierItem getItem(T item) {
         for (PanierItem i : items) {
-            if (i.item.compareTo(item) == 0)
+            if (i.item != null && i.item.compareTo(item) == 0)
                 return i;
         }
         return null;

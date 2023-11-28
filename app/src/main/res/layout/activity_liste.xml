@@ -30,7 +30,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
                 android:background="?attr/popupMenuBackground"
-                android:backgroundTint="@color/main_color_bg"
+                android:backgroundTint="?attr/main_color_bg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -40,7 +40,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:scrollbarAlwaysDrawVerticalTrack="true"></LinearLayout>
+                    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+                </LinearLayout>
             </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

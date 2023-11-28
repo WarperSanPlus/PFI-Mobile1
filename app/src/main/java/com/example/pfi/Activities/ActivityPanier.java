@@ -2,10 +2,8 @@ package com.example.pfi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ObjectAnimator;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.pfi.Classes.Client;
 import com.example.pfi.Helper.CardUIHelper;
-import com.example.pfi.Helper.ThreadHelper;
+import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 public class ActivityPanier extends AppCompatActivity {

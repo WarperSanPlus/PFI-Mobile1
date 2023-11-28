@@ -109,8 +109,6 @@ public class CategoryDisplay extends Fragment {
             int visibility;
             int backgroundId;
 
-            Logger.log(btn_see_Articles.getBackground().getConstantState());
-
             //If the button is to see more -> make visible the articles grid and change the image background
             if (!isOpened) {
                 visibility = View.VISIBLE;

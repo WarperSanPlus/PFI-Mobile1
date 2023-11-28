@@ -56,7 +56,7 @@ public class ActivityProductDetails extends AppCompatActivity {
 
             Client.getPanier().addItem(article, amount);
 
-            panierBtn.performClick();
+            IntentHelper.closeAndMove(ActivityProductDetails.this, ActivityPanier.class, null);
         });
 
         productDetailsCard = findViewById(R.id.details_card);

@@ -1,5 +1,7 @@
 package com.example.pfi.Classes;
 
+import java.util.ArrayList;
+
 public class Client {
     private static Client Instance = null;
 
@@ -14,10 +16,13 @@ public class Client {
 
     private final PanierArticle panier = new PanierArticle();
 
+    public static ArrayList<Category> categories;
+
     // endregion
 
     private Client(String username) {
         setUsername(username);
+        categories = Category.loadCategories();
     }
 
     // region Static

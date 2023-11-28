@@ -23,7 +23,7 @@ public class XMLHelper {
 
         try {
             objs = parseObject(
-                    ResourcesManager.Context.getAssets().open(fileName),
+                    ResourcesManager.getContext().getAssets().open(fileName),
                     mainTag,
                     secondaryTag,
                     onTagFound

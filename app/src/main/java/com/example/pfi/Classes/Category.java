@@ -61,6 +61,7 @@ public class Category implements Comparable<Category> {
      * @return Categories loaded by the application.
      */
     public static ArrayList<Category> loadCategories() {
+        Logger.log("*** LOADING CATEGORIES ***");
         ArrayList<Category> categories = XMLHelper.initializeObjects("categories.xml", MAIN_TAG, SECOND_TAG, Category::parseCategory);
 
         // Sort categories

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    android:background="@color/main_color_fg"
+    android:background="?attr/main_color_fg"
     tools:context=".Activities.LoginActivity">
 
     <TextView
@@ -18,7 +18,7 @@
         android:fontFamily="serif"
         android:text="@string/login_titre"
         android:textAlignment="center"
-        android:textColor="@color/main_title"
+        android:textColor="?attr/main_title"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
             android:backgroundTint="#1B4E954E"
             android:drawableStart="@drawable/login_nom"
             android:drawablePadding="10dp"
-            android:drawableTint="@color/main_color_fg"
+            android:drawableTint="?attr/main_color_fg"
             android:drawableTintMode="add"
             android:fontFamily="serif"
             android:hint="@string/login_Entrez_nom"
@@ -89,7 +89,7 @@
             android:backgroundTint="#1B4E954E"
             android:drawableStart="@android:drawable/ic_lock_idle_lock"
             android:drawablePadding="10dp"
-            android:drawableTint="@color/main_color_fg"
+            android:drawableTint="?attr/main_color_fg"
             android:drawableTintMode="add"
             android:fontFamily="serif"
             android:hint="@string/login_Entrez_mdp"
@@ -112,9 +112,10 @@
 
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="30dp"
-            android:backgroundTint="@color/main_color_fg"
+            android:backgroundTint="#3622A1"
             android:fontFamily="serif"
             android:text="@string/login_btn_connection"
+            android:textColor="?attr/main_title"
             android:textSize="20sp"
             android:textStyle="bold"
             app:cornerRadius="@dimen/cardview_compat_inset_shadow"

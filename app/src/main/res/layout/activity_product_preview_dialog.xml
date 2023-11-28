@@ -11,7 +11,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/main_color_bg"
+            android:background="?attr/main_color_bg"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="5dp">
@@ -42,7 +42,7 @@
                         android:layout_marginBottom="2dp"
                         android:text="@string/placeholder"
                         android:textAllCaps="true"
-                        android:textColor="@color/main_title"
+                        android:textColor="?attr/main_title"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="@string/placeholder"
-                android:textColor="@color/main_title"
+                android:textColor="?attr/main_title"
                 android:textSize="16sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -93,7 +93,7 @@
                     android:backgroundTint="@color/white"
                     android:text="@string/retour_txt"
                     android:textAllCaps="false"
-                    android:textColor="@color/main_color_bg"
+                    android:textColor="?attr/main_color_bg"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -106,7 +106,7 @@
                     android:backgroundTint="@color/white"
                     android:text="@string/show_details"
                     android:textAllCaps="false"
-                    android:textColor="@color/main_color_bg"
+                    android:textColor="?attr/main_color_bg"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>

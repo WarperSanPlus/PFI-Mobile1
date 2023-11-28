@@ -1,6 +1,7 @@
 package com.example.pfi.Classes;
 
 import android.app.Activity;
+import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 

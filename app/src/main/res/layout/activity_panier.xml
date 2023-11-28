@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_color_fg"
+    android:background="?attr/main_color_fg"
     tools:context=".Activities.ActivityPanier">
 
     <com.google.android.material.navigation.NavigationView
@@ -18,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/main_color_fg"
+            android:background="?attr/main_color_fg"
             android:backgroundTintMode="src_over">
 
             <ImageButton
@@ -41,7 +41,7 @@
                 android:layout_marginStart="40dp"
                 android:gravity="center_vertical"
                 android:text="@string/panier_titre"
-                android:textColor="@color/main_title"
+                android:textColor="?attr/main_title"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/placeholder"
-                android:textColor="@color/main_color_bg"
+                android:textColor="?attr/main_color_bg"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -122,9 +122,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="4dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/main_color_bg"
+                android:backgroundTint="?attr/main_color_bg"
                 android:backgroundTintMode="src_over"
                 android:text="@string/panier_viderPanier"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <Button
@@ -133,9 +134,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="4dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/main_color_bg"
+                android:backgroundTint="?attr/main_color_bg"
                 android:backgroundTintMode="src_over"
                 android:text="@string/panier_allerCaisse"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
