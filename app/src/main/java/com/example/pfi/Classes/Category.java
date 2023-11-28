@@ -12,6 +12,7 @@ import org.xmlpull.v1.XmlPullParser;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.function.Function;
 
 public class Category implements Comparable<Category> {
     // region Nom
@@ -35,7 +36,7 @@ public class Category implements Comparable<Category> {
     private ArrayList<Article> articles = new ArrayList<>();
 
     public void sortArticles() {
-        articles.sort(Comparator.naturalOrder());
+        articles.sort(Comparator.comparing(Article::getNom));
     }
 
     public ArrayList<Article> getArticles() { return articles; }

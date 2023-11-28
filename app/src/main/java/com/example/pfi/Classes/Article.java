@@ -16,7 +16,7 @@ import org.xmlpull.v1.XmlPullParser;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Article extends Product implements Comparable<Article> {
+public class Article extends Product {
     // region Nom
     private @StringRes int nomId = R.string.article_no_name;
 
@@ -28,10 +28,6 @@ public class Article extends Product implements Comparable<Article> {
         this.nomId = StringHelper.checkStringId(nomId, R.string.article_no_name);
     }
 
-    @Override
-    public int compareTo(Article article) {
-        return this.getNom().compareTo(article.getNom());
-    }
     // endregion
     // region Description
     private @StringRes int descriptionId = R.string.article_no_description;
@@ -63,9 +59,9 @@ public class Article extends Product implements Comparable<Article> {
     }
 
     public static String convertPrix(double price) {
-        DecimalFormat f = new DecimalFormat("##.00");
+        //DecimalFormat f = new DecimalFormat("%.2f");
 
-        return Translator.formatString(R.string.price_display, f.format(price));
+        return Translator.formatString(R.string.price_display, String.format("%.2f", price));
     }
     // endregion
     // region Icon
@@ -150,5 +146,6 @@ public class Article extends Product implements Comparable<Article> {
             throw new RuntimeException(e);
         }
     }
+
     // endregion
 }

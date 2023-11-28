@@ -11,7 +11,7 @@
     <string name="navigation_panier">Voir mon panier</string>
     <string name="navigation_menu_langue">Menu langue</string>
 
-    <!-- SNACKBARS -->
+    <!-- TOASTS -->
     <string name="login_error">Votre nom ou votre mot de passe est invalide</string>
 
     <!-- LOGIN -->
@@ -96,6 +96,8 @@
     <string name="panier_viderPanier">Vider le panier</string>
     <string name="panier_allerCaisse">Passer à la caisse</string>
     <string name="panier_total_label">TOTAL : </string>
+    <string name="add_to_panier">Ajouter au panier</string>
+    <string name="remove_from_panier">Retirer du panier</string>
 
     <!-- PRIX -->
     <string name="price_display">${0} $</string>

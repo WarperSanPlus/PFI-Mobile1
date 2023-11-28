@@ -38,13 +38,15 @@ public class ArticleViewHolder extends AdaptorViewHolder<Article> {
         txtNom.setText(item.getNom());
         txtPrix.setText(item.getPrix());
 
-        moreBtn.setOnClickListener(v -> updateItemAmount(v, item, 1));
-        minusBtn.setOnClickListener(v -> updateItemAmount(v, item, -1));
+        moreBtn.setOnClickListener(v -> updateItemAmount(item, 1));
+        minusBtn.setOnClickListener(v -> updateItemAmount(item, -1));
+
+        updateItemAmount(item, 0);
 
         onAmountChanged(Client.getPanier().getItemAmount(item));
     }
 
-    private void updateItemAmount(View v, Article item, int amount) {
+    private void updateItemAmount(Article item, int amount) {
         Client.getPanier().addItem(item, amount);
         int newAmount = Client.getPanier().getItemAmount(item);
 

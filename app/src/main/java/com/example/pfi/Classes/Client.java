@@ -1,7 +1,5 @@
 package com.example.pfi.Classes;
 
-import com.example.pfi.R;
-
 public class Client {
     private static Client Instance = null;
 
@@ -18,15 +16,8 @@ public class Client {
 
     // endregion
 
-
     private Client(String username) {
         setUsername(username);
-
-        Article a = new Article(R.string.article_name_pomme, R.string.article_pomme_desc, "article_pomme", R.string.article_pomme_prix, 2);
-
-        panier.addItem(a);
-        panier.addItem(new Article(R.string.article_name_banane, R.string.article_banane_desc, "article_banane", R.string.article_banane_prix, 4));
-        panier.addItem(new Article(R.string.article_name_carotte, R.string.article_carotte_desc, "article_carotte", R.string.article_carotte_prix, 6));
     }
 
     // region Static

@@ -37,11 +37,11 @@ public abstract class Panier<T extends Product> {
     // endregion
     // region Get item informations
 
-    private boolean hasItem(T item) { return getItem(item) != null; }
+    public boolean hasItem(T item) { return getItem(item) != null; }
 
     private PanierItem getItem(T item) {
         for (PanierItem i : items) {
-            if (i.item == item)
+            if (i.item.compareTo(item) == 0)
                 return i;
         }
         return null;

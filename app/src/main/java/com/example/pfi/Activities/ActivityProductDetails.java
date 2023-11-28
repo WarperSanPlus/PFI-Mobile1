@@ -12,9 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pfi.Classes.Article;
+import com.example.pfi.Classes.Client;
 import com.example.pfi.Classes.PanierArticle;
 import com.example.pfi.Helper.CardUIHelper;
 import com.example.pfi.Helper.IntentHelper;
+import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 public class ActivityProductDetails extends AppCompatActivity {
@@ -30,10 +32,7 @@ public class ActivityProductDetails extends AppCompatActivity {
         // HeaderBarHelper.setHeaderBar(this, R.string.activity_product_details_name);
 
         //Article envoyé par ProductPreviewDialog
-        Article article = (Article)getIntent().getSerializableExtra(SELECTED_ARTICLE);
-
-        // Créer panier
-        PanierArticle panier = new PanierArticle();
+        Article article = (Article) getIntent().getSerializableExtra(SELECTED_ARTICLE);
 
         if (article != null)
             setArticle(article);
@@ -48,12 +47,17 @@ public class ActivityProductDetails extends AppCompatActivity {
 
         // L'autre btn
         Button btn_actionPanier = findViewById(R.id.details_actionPanier);
-          /*btn_actionPanier.setOnClickListener(view -> {
-            /*if(panier Contains article) -> btn_actionPanier.setText("Retirer du Panier")
-              else -> btn_actionPanier.setText("Ajouter au Panier")
 
+        int btnPanierText = Client.getPanier().hasItem(article) ? R.string.remove_from_panier : R.string.add_to_panier;
+        btn_actionPanier.setText(btnPanierText);
 
-        });*/
+        btn_actionPanier.setOnClickListener(view -> {
+            int amount = Client.getPanier().hasItem(article) ? -Client.getPanier().getItemAmount(article) : 1;
+
+            Client.getPanier().addItem(article, amount);
+
+            panierBtn.performClick();
+        });
 
         productDetailsCard = findViewById(R.id.details_card);
         Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_card);

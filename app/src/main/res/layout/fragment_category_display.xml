@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_column="2"
-    android:layout_marginHorizontal="12dp"
     android:paddingBottom="8dp"
     tools:context=".Fragments.CategoryDisplay">
 
@@ -23,22 +22,31 @@
                 android:id="@+id/categoryNameTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"
                 android:text="@string/placeholder"
                 android:textAlignment="textStart"
+                android:textColor="@color/main_title"
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
+
+            <ImageButton
+                android:id="@+id/category_btn_seeArticles"
+                android:layout_width="92dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/category_see_more_article" />
 
         </LinearLayout>
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/categoryDisplay_articlesGrid"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:visibility="gone"
             app:columnCount="2"
             app:useDefaultMargins="true" />
 

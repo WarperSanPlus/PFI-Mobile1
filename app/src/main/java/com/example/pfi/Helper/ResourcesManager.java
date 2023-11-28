@@ -13,7 +13,7 @@ public abstract class ResourcesManager {
     // region Context
     public static Context Context;
 
-    private static Context getContext() { return Context; }
+    public static Context getContext() { return Context; }
     // endregion
     // region Resources
 

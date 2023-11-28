@@ -1,5 +1,7 @@
 package com.example.pfi.Fragments;
 
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,14 +9,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Category;
 import com.example.pfi.Helper.FragmentHelper;
+import com.example.pfi.Logger;
 import com.example.pfi.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,13 +70,19 @@ public class CategoryDisplay extends Fragment {
         }
     }
 
+
+    View articlesGrid;
+    boolean isOpened = false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        MediaPlayer mp = new MediaPlayer();
         View v = inflater.inflate(R.layout.fragment_category_display, container, false);
 
         TextView categoryName = v.findViewById(R.id.categoryNameTV);
         categoryName.setText(name);
+        ImageButton btn_see_Articles = v.findViewById(R.id.category_btn_seeArticles);
 
         // Create fragments
         FragmentHelper.createFragments(
@@ -77,6 +91,41 @@ public class CategoryDisplay extends Fragment {
                 ArticleDisplay::newInstance,
                 getChildFragmentManager()
         );
+
+        articlesGrid = v.findViewById(R.id.categoryDisplay_articlesGrid);
+
+        //click on arrow
+        btn_see_Articles.setOnClickListener(view ->{
+            //Sound effect
+            mp.reset();
+            try {
+                mp.setDataSource(v.getContext(), Uri.parse("android.resource://" +v.getContext().getPackageName()+ "/raw/liste_see_more_less"));
+                mp.prepare();
+                mp.start();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            int visibility;
+            int backgroundId;
+
+            Logger.log(btn_see_Articles.getBackground().getConstantState());
+
+            //If the button is to see more -> make visible the articles grid and change the image background
+            if (!isOpened) {
+                visibility = View.VISIBLE;
+                backgroundId = R.drawable.category_see_less_article;
+            } else { //If not -> make the articles grid invisible and change the image background
+                visibility = View.GONE;
+                backgroundId = R.drawable.category_see_more_article;
+            }
+
+            isOpened = !isOpened;
+
+            articlesGrid.setVisibility(visibility);
+            btn_see_Articles.setBackground(getResources().getDrawable(backgroundId));
+        });
+
 
         // Hide empty categories
         if (articles.size() == 0) {

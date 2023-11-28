@@ -41,8 +41,6 @@
             android:id="@+id/articleDisplay_nameTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="4dp"
             android:text="@string/placeholder"
             android:textAlignment="center"
             android:textSize="20sp" />

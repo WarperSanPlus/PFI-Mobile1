@@ -14,6 +14,7 @@ import com.example.pfi.Activities.ActivityProductDetails;
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.Helper.ResourcesManager;
+import com.example.pfi.Logger;
 import com.example.pfi.R;
 import com.example.pfi.Translator;
 
