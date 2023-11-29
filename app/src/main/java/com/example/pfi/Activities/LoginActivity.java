@@ -2,12 +2,20 @@ package com.example.pfi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.example.pfi.Classes.Client;
@@ -18,6 +26,8 @@ import com.example.pfi.Helper.SoundHelper;
 import com.example.pfi.Helper.ThreadHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
+
+import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edit_nom;
@@ -43,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // Click bouton
         btn.setOnClickListener(this::onConnectionBtnClicked);
+
+        createMenu();
     }
 
     Thread loginThread = null;
@@ -95,5 +107,57 @@ public class LoginActivity extends AppCompatActivity {
         Client.setClient(name);
         IntentHelper.moveToActivity(this, ActivityListe.class, null);
         mp = null;
+    }
+
+
+    // --- MENU ---
+    private void createMenu() {
+        // Set buttons
+        ImageButton menuBtn = findViewById(R.id.login_menuBtn);
+        menuBtn.setOnClickListener(this::showMenu);
+    }
+
+    private void showMenu(View anchor) {
+        PopupMenu popupMenu = new PopupMenu(this, anchor);
+        popupMenu.getMenuInflater().inflate(R.menu.more_options_menu, popupMenu.getMenu());
+
+        popupMenu.getMenu()
+                .findItem(R.id.more_options_lang_fr_en)
+                .setTitle(getNextLang().getDisplayName());
+
+        popupMenu.setOnMenuItemClickListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.more_options_lang_fr_en) {
+                switchLang(item);
+                return true;
+            }
+            return false;
+        });
+
+        popupMenu.show();
+    }
+
+    @SuppressLint("UnsafeIntentLaunch")
+    private void switchLang(MenuItem item) {
+        setLang(getNextLang());
+
+        finish();
+        startActivity(getIntent());
+    }
+
+    private Locale getNextLang() {
+        return getCurrentLang().toLanguageTag().equals("en") ? Locale.getDefault() : new Locale("en");
+    }
+
+    private Locale getCurrentLang() {
+        return ResourcesManager.getResources().getConfiguration().getLocales().get(0);
+    }
+
+    private void setLang(Locale locale) {
+        Resources res = ResourcesManager.getResources();
+        Configuration conf = res.getConfiguration();
+        conf.setLocale(locale);
+        res.updateConfiguration(conf, null);
     }
 }

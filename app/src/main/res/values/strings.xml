@@ -2,7 +2,6 @@
     <string name="app_name">PFI</string>
     <string name="placeholder" translatable="false">PLACEHOLDER</string>
 
-    <string name="retour_txt">RETOUR</string>
     <string name="show_details">Afficher les détails</string>
 
     <!-- NAVIGATION BAR -->
@@ -104,4 +103,5 @@
 
     <!-- PRODUCT PREVIEW -->
     <string name="article_quantity_remaining">Il reste ${0} en stock.</string>
+    <string name="retour_txt">RETOUR</string>
 </resources>
