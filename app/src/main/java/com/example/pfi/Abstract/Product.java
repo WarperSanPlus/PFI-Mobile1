@@ -1,22 +1,16 @@
 package com.example.pfi.Abstract;
 
-import com.example.pfi.Classes.Article;
-
 import java.io.Serializable;
 import java.util.UUID;
 
 public abstract class Product implements Serializable, Comparable<Product> {
     // region UUID
-    private String uuid;
-
+    private final String uuid; // Unique ID
     // endregion
-
     // region Stock
-
     private int stockRemaining;
 
     public int getStockAmount() { return stockRemaining; }
-
     // endregion
 
     public Product(int stockRemaining) {
@@ -24,9 +18,10 @@ public abstract class Product implements Serializable, Comparable<Product> {
         this.uuid = UUID.randomUUID().toString();
     }
 
+    // region Override
     @Override
     public int compareTo(Product o) {
         return this.uuid.compareTo(o.uuid);
     }
-
+    // endregion
 }

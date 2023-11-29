@@ -5,7 +5,8 @@ public abstract class Config {
     public static final boolean ENABLE_LOG = true;
     public static final boolean ENABLE_ADS = true;
     public static final boolean ENABLE_AUDIO = false;
-    public static final boolean ENABLE_AUTOMATIC_LOGIN = true;
+    public static final boolean ENABLE_AUTOMATIC_LOGIN = false;
+    public static final boolean ENABLE_ARTIFICIAL_FETCH_TIME = true;
     // endregion
     // region AUDIT
     public static final boolean AUDIT_ACTIVITY_MOVEMENT = false;

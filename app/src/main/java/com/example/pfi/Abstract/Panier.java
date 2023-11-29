@@ -6,8 +6,9 @@ public abstract class Panier<T extends Product> {
     private final ArrayList<PanierItem> items = new ArrayList<>();
 
     // region Add item
-    public void addItem(T item) { addItem(item, 1); }
-
+    /**
+     * Add the given amount of the given item to this Panier.
+     */
     public void addItem(T item, int amount) {
         // Try to get the PanierItem associated with 'item'
         PanierItem panierItem = getItem(item);
@@ -16,7 +17,7 @@ public abstract class Panier<T extends Product> {
         if (panierItem == null)
         {
             // Create a new PanierItem
-            addPanierItem(item, amount);
+            createPanierItem(item, amount);
         }
         else {
 
@@ -34,16 +35,25 @@ public abstract class Panier<T extends Product> {
         }
         onUpdate();
     }
-
+    // endregion
+    // region Remove item
+    /**
+     * Remove all items of this Panier
+     */
     public void clear() {
         items.clear();
         onUpdate();
     }
     // endregion
     // region Get item informations
-
+    /**
+     * @return This panier has the given item in it
+     */
     public boolean hasItem(T item) { return getItem(item) != null; }
 
+    /**
+     * @return The PanierItem associated with the given item. If not associated, return null
+     */
     private PanierItem getItem(T item) {
         for (PanierItem i : items) {
             if (i.item != null && i.item.compareTo(item) == 0)
@@ -52,25 +62,35 @@ public abstract class Panier<T extends Product> {
         return null;
     }
 
+    /**
+     * @return Amount of the given item in this Panier
+     */
     public int getItemAmount(T item) {
         PanierItem panierItem = getItem(item);
         return panierItem == null ? 0 : panierItem.getAmount();
     }
 
+    /**
+     * @return Amount of different items in this Panier
+     */
     public int getItemCount() {
         return items.size();
     }
-
     // endregion
     // region Panier Item
-
-    private void addPanierItem(T item, int amount) {
+    /**
+     * Create a PanierItem associated to the given item with the given quantity
+     */
+    private void createPanierItem(T item, int amount) {
         if (amount <= 0 || item.getStockAmount() < amount + getItemAmount(item))
             return;
 
         items.add(new PanierItem(item, amount));
     }
 
+    /**
+     * @return Items in this Panier
+     */
     protected ArrayList<T> getItems() {
         ArrayList<T> litItems = new ArrayList<>();
 
@@ -82,7 +102,6 @@ public abstract class Panier<T extends Product> {
 
     private class PanierItem {
         // region Amount
-
         private int amount;
 
         public int getAmount() { return amount; }
@@ -97,7 +116,6 @@ public abstract class Panier<T extends Product> {
             this.amount = initialAmount;
         }
     }
-
     // endregion
     // region Update Listener
     private void onUpdate() {

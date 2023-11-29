@@ -8,20 +8,14 @@ import java.util.concurrent.Callable;
  * Useful for starting threads
  */
 public abstract class ThreadHelper {
-    public static void startThread(Runnable runnable) {
+    public static Thread startThread(Runnable runnable) {
 
         // TODO : Threads management
 
-        new Thread(runnable).start();
-    }
+        Thread t = new Thread(runnable);
 
-    public static void startThread(Callable call) {
-        startThread(() -> {
-            try {
-                call.call();
-            } catch (Exception e) {
-                Logger.error(e);
-            }
-        });
+        t.start();
+
+        return t;
     }
 }

@@ -13,6 +13,7 @@ public class ArticleAdaptateur extends Adaptor<Article, ArticleViewHolder> {
         super(ctx, items);
     }
 
+    // region Override
     @Override
     protected int getLayout() {
         return R.layout.panier_item_layout;
@@ -22,4 +23,5 @@ public class ArticleAdaptateur extends Adaptor<Article, ArticleViewHolder> {
     protected ArticleViewHolder getViewHolder(View itemView) {
         return new ArticleViewHolder(itemView);
     }
+    // endregion
 }

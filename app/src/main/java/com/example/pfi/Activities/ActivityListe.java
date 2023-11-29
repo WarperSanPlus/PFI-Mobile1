@@ -14,14 +14,14 @@ import com.example.pfi.Fragments.CategoryListeFragment;
 import com.example.pfi.Helper.DialogHelper;
 import com.example.pfi.Helper.FragmentHelper;
 import com.example.pfi.Helper.HeaderBarHelper;
+import com.example.pfi.Helper.SoundHelper;
 import com.example.pfi.R;
 
 import java.util.ArrayList;
 
+// TODO : CONVERT CATEGORY DISPLAY TO RECYCLER VIEW
+// TODO : FIX RELOAD DUPLICATES
 public class ActivityListe extends AppCompatActivity {
-    // TODO : CONVERT CATEGORY DISPLAY TO RECYCLER VIEW
-    MediaPlayer mp = new MediaPlayer();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +42,15 @@ public class ActivityListe extends AppCompatActivity {
         FragmentHelper.createFragments(parent, categories, CategoryListeFragment::newInstance, this);
     }
 
+    MediaPlayer mp = new MediaPlayer();
+
     /**
      * Opens a ProductPreviewDialog for the given article.
      */
     public void openDialog(Article article) {
         DialogHelper.openDialog(() -> new ProductPreviewDialog(article), getSupportFragmentManager(), this.toString());
 
-        //mp = SoundHelper.playSound(mp, R.raw.liste_see_more_less);
+        mp = SoundHelper.playSound(mp, R.raw.liste_see_more_less);
         //playSound(Uri.parse("android.resource://" + this.getPackageName()+ "/raw/liste_see_more_less"));
     }
 }

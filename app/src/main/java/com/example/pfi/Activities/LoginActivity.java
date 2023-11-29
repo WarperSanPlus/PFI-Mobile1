@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import com.example.pfi.Config;
 import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.Helper.ResourcesManager;
 import com.example.pfi.Helper.SoundHelper;
+import com.example.pfi.Helper.ThreadHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
 
@@ -43,32 +45,50 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(this::onConnectionBtnClicked);
     }
 
+    Thread loginThread = null;
     private void onConnectionBtnClicked(View view) {
         // Récupération nom & mot de passe du client
         String username = edit_nom.getText().toString();
         String password = edit_mdp.getText().toString();
 
-        // Vérification du mot de passe (par défaut: Password)
-        if (!Client.isPasswordValid(username, password)){
-            /*Snackbar.make(
-                    findViewById(R.id.login_layout1),
-                    getString(R.string.login_error),
-                    Snackbar.LENGTH_SHORT
-            ).show();*/
-            Toast.makeText(this, R.string.login_error, Toast.LENGTH_SHORT).show();
-
-            // Uri urlLoginDeny = Uri.parse("android.resource://" + this.getPackageName()+ "/raw/login_access_denied");
-
-            mp = SoundHelper.playSound(mp, R.raw.login_access_denied);
-            //playSound(urlLoginDeny);
+        if (loginThread != null)
             return;
-        }
 
-        // Uri urlLoginOK =  Uri.parse("android.resource://" + this.getPackageName()+ "/raw/login_access_accepted");
+        loginThread = ThreadHelper.startThread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                try {
+                    onLoginTry();
+                } catch (InterruptedException e) {
+                    Logger.error(e);
+                }
+            }
 
-        mp = SoundHelper.playSound(mp, R.raw.login_access_accepted);
-        //playSound(urlLoginOK);
-        onSuccessfulLogin(username, password);
+            private void onLoginTry() throws InterruptedException {
+                if (Config.ENABLE_ARTIFICIAL_FETCH_TIME) {
+                    showToast("Artificial fetch time...");
+                    Thread.sleep(3000); // "loading" ...
+                }
+
+                // Vérification du mot de passe
+                boolean isPasswordValid = Client.isPasswordValid(username, password);
+
+                // Play sound
+                mp = SoundHelper.playSound(mp, isPasswordValid ? R.raw.login_access_accepted : R.raw.login_access_denied);
+
+                if (isPasswordValid) // Login in
+                    onSuccessfulLogin(username, password);
+                else // Show error
+                    showToast(ResourcesManager.getString(R.string.login_error));
+
+                loginThread = null;
+            }
+        });
+    }
+
+    private void showToast(CharSequence text) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
     private void onSuccessfulLogin(String name, String password) {

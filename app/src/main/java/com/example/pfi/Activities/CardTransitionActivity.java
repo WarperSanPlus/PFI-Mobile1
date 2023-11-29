@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.Explode;
 
 import com.example.pfi.Helper.ThreadHelper;
 import com.example.pfi.R;
 
 public class CardTransitionActivity extends AppCompatActivity {
-
     public static final String DESTINATION_ACTIVITY = "destActivity";
 
     @Override
@@ -28,7 +26,7 @@ public class CardTransitionActivity extends AppCompatActivity {
             Bundle extraBundle = getIntent().getExtras();
             Class dest = (Class) extraBundle.getSerializable(DESTINATION_ACTIVITY);
 
-            extraBundle.remove(DESTINATION_ACTIVITY); // Remove ad extra
+            extraBundle.remove(DESTINATION_ACTIVITY); // Remove card transition extra
 
             Intent c = new Intent(CardTransitionActivity.this, dest);
 

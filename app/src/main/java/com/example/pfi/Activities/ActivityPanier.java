@@ -27,6 +27,8 @@ public class ActivityPanier extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panier);
 
+        panierCard = findViewById(R.id.panier_card);
+
         // Set 'retour' button
         ImageButton retourBtn = findViewById(R.id.panier_btnRetour);
         retourBtn.setOnClickListener(v -> CardUIHelper.endActivity(this, panierCard));
@@ -47,7 +49,6 @@ public class ActivityPanier extends AppCompatActivity {
 
         onPanierUpdated();
 
-        panierCard = findViewById(R.id.panier_card);
         Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_card);
         panierCard.startAnimation(aniSlide);
     }
@@ -55,7 +56,6 @@ public class ActivityPanier extends AppCompatActivity {
     private void onClearBasketClicked(View v) {
         Client.getPanier().clear();
         ((ViewGroup) recyclerView).removeAllViews(); // TODO : INVESTIGATE WHY IT WORKS
-
     }
 
     private void onFinishBuyingClicked(View v) {

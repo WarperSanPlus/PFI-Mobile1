@@ -14,10 +14,8 @@ import android.widget.TextView;
 
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Client;
-import com.example.pfi.Classes.PanierArticle;
 import com.example.pfi.Helper.CardUIHelper;
 import com.example.pfi.Helper.IntentHelper;
-import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 public class ActivityProductDetails extends AppCompatActivity {
