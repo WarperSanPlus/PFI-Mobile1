@@ -2,6 +2,7 @@ package com.example.pfi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -64,6 +65,7 @@ public class ActivityProductDetails extends AppCompatActivity {
         productDetailsCard.startAnimation(aniSlide);
     }
 
+    @SuppressLint("SetTextI18n")
     private void setArticle(Article article) {
         // Set icon imageview
         ImageView icon = findViewById(R.id.details_icon);
@@ -79,6 +81,6 @@ public class ActivityProductDetails extends AppCompatActivity {
 
         // Set price textview
         TextView prix = findViewById(R.id.details_prix);
-        prix.setText(article.getPrix());
+        prix.setText("(" + article.getPrix() + ")");
     }
 }

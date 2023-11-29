@@ -2,8 +2,10 @@ package com.example.pfi.Helper;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -42,7 +44,7 @@ public abstract class HeaderBarHelper {
 
         popupMenu.getMenu()
                 .findItem(R.id.more_options_lang_fr_en)
-                .setTitle(getCurrentLang().getDisplayName());
+                .setTitle(getCurrentLang().toLanguageTag());
 
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
@@ -59,6 +61,7 @@ public abstract class HeaderBarHelper {
 
     private static void switchLang(Context ctx, MenuItem item) {
         // ...
+        //setLang("en-rCA", ctx);
     }
 
     private static Locale getCurrentLang() {
@@ -67,12 +70,13 @@ public abstract class HeaderBarHelper {
 
     // idk if it works
     private static void setLang(String languageCode, Context ctx) {
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
+        Locale myLocale = new Locale(languageCode);
+        Resources res = ctx.getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.setLocale(myLocale);
+        res.updateConfiguration(conf, dm);
 
-        Resources resources = ctx.getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
+
     }
 }

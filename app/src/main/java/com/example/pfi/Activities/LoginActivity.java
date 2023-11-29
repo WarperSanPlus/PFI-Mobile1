@@ -16,7 +16,6 @@ import com.example.pfi.Helper.ResourcesManager;
 import com.example.pfi.Helper.SoundHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
-import com.google.android.material.snackbar.Snackbar;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edit_nom;
@@ -30,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         ResourcesManager.Context = this;
 
         // if automatic login is checked
-        if (Config.AUTOMATIC_LOGIN) {
+        if (Config.ENABLE_AUTOMATIC_LOGIN) {
             Logger.log("*** Automatically logged in ***");
             onSuccessfulLogin("DEBUG_CLIENT", "DEFAULT");
         }

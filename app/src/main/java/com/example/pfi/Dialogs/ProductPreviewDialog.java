@@ -14,9 +14,8 @@ import com.example.pfi.Activities.ActivityProductDetails;
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.Helper.ResourcesManager;
-import com.example.pfi.Logger;
+import com.example.pfi.Helper.StringHelper;
 import com.example.pfi.R;
-import com.example.pfi.Translator;
 
 public class ProductPreviewDialog extends DialogFragment {
     private Article article;
@@ -81,7 +80,7 @@ public class ProductPreviewDialog extends DialogFragment {
         // Set stock remaining textview
         TextView stockTV = v.findViewById(R.id.productPreview_productStockAmount);
         int quantity = targetArticle.getStockAmount();
-        stockTV.setText(Translator.formatString(R.string.article_quantity_remaining, quantity));
+        stockTV.setText(StringHelper.formatString(R.string.article_quantity_remaining, quantity));
 
         stockTV.setTextColor(ResourcesManager.getColor(quantity <= 3 ? R.color.stock_running_out : R.color.sufficient_stock));
 

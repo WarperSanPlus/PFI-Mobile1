@@ -1,20 +1,19 @@
 package com.example.pfi.Classes;
 
+import android.annotation.SuppressLint;
+
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
 import com.example.pfi.Abstract.Product;
+import com.example.pfi.Config;
 import com.example.pfi.Helper.ResourcesManager;
 import com.example.pfi.Helper.StringHelper;
 import com.example.pfi.Helper.XMLHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
-import com.example.pfi.Translator;
 
 import org.xmlpull.v1.XmlPullParser;
-
-import java.io.Serializable;
-import java.text.DecimalFormat;
 
 public class Article extends Product {
     // region Nom
@@ -58,10 +57,9 @@ public class Article extends Product {
         return  prixS == null ? 0 : Double.parseDouble(prixS);
     }
 
+    @SuppressLint("DefaultLocale")
     public static String convertPrix(double price) {
-        //DecimalFormat f = new DecimalFormat("%.2f");
-
-        return Translator.formatString(R.string.price_display, String.format("%.2f", price));
+        return StringHelper.formatString(R.string.price_display, String.format("%.2f", price));
     }
     // endregion
     // region Icon
@@ -86,9 +84,9 @@ public class Article extends Product {
             @StringRes int descriptionId,
             String iconName,
             @StringRes int prixId,
-            int quantity
+            int stock
     ){
-        super(quantity);
+        super(stock);
 
         setNom(nomId);
         setDescription(descriptionId);
@@ -102,6 +100,9 @@ public class Article extends Product {
     public static final String SECOND_TAG = "article";
 
     public static Article parseArticle(XmlPullParser parser) {
+        if (Config.AUDIT_OBJECT_LOAD)
+            Logger.log("*** LOADING ARTICLE ***");
+
         try {
             parser.require(XmlPullParser.START_TAG, null, SECOND_TAG);
 
@@ -134,6 +135,9 @@ public class Article extends Product {
                         break;
                 }
             }
+
+            if (Config.AUDIT_OBJECT_LOAD)
+                Logger.log("--- LOADING ENDED ---");
 
             return new Article(
                     ResourcesManager.getStringIdentifier(displayName),

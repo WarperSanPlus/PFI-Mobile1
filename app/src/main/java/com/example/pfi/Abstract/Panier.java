@@ -34,6 +34,11 @@ public abstract class Panier<T extends Product> {
         }
         onUpdate();
     }
+
+    public void clear() {
+        items.clear();
+        onUpdate();
+    }
     // endregion
     // region Get item informations
 
@@ -50,6 +55,10 @@ public abstract class Panier<T extends Product> {
     public int getItemAmount(T item) {
         PanierItem panierItem = getItem(item);
         return panierItem == null ? 0 : panierItem.getAmount();
+    }
+
+    public int getItemCount() {
+        return items.size();
     }
 
     // endregion
@@ -92,13 +101,12 @@ public abstract class Panier<T extends Product> {
     // endregion
     // region Update Listener
     private void onUpdate() {
+        // TODO : REMOVE NOT NECESSARY LISTENERS
         for (Runnable c : onUpdateListeners) {
-            if (c != null) {
-                try {
-                    c.run();
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
+            try {
+                c.run();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }

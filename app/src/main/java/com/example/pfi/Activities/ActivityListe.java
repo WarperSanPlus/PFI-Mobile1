@@ -5,22 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.ViewGroup;
 
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Category;
 import com.example.pfi.Classes.Client;
 import com.example.pfi.Dialogs.ProductPreviewDialog;
-import com.example.pfi.Fragments.CategoryDisplay;
+import com.example.pfi.Fragments.CategoryListeFragment;
 import com.example.pfi.Helper.DialogHelper;
 import com.example.pfi.Helper.FragmentHelper;
 import com.example.pfi.Helper.HeaderBarHelper;
-import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 import java.util.ArrayList;
 
 public class ActivityListe extends AppCompatActivity {
+    // TODO : CONVERT CATEGORY DISPLAY TO RECYCLER VIEW
     MediaPlayer mp = new MediaPlayer();
 
     @Override
@@ -40,7 +39,7 @@ public class ActivityListe extends AppCompatActivity {
         if (categories == null)
             return;
 
-        FragmentHelper.createFragments(parent, categories, CategoryDisplay::newInstance, this);
+        FragmentHelper.createFragments(parent, categories, CategoryListeFragment::newInstance, this);
     }
 
     /**

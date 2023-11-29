@@ -112,7 +112,7 @@
 
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="30dp"
-            android:backgroundTint="#3622A1"
+            android:backgroundTint="?attr/main_color_fg"
             android:fontFamily="serif"
             android:text="@string/login_btn_connection"
             android:textColor="?attr/main_title"

@@ -3,9 +3,14 @@
     <declare-styleable name="ds">
         <attr name="background_color" format="color"/>
         <attr name="text_color" format="color"/>
+
         <attr name="main_color_fg" format="color"/>
-        <attr name="main_color_bg" format="color"/>
         <attr name="second_color_fg" format="color"/>
+
+        <attr name="main_color_bg" format="color"/>
+        <attr name="second_color_bg" format="color"/>
+
         <attr name="main_title" format="color"/>
+        <attr name="liste_color_bg" format="color"/>
     </declare-styleable>
 </resources>

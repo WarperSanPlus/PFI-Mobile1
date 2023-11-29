@@ -1,10 +1,11 @@
 package com.example.pfi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -13,14 +14,13 @@ import android.widget.TextView;
 
 import com.example.pfi.Classes.Client;
 import com.example.pfi.Helper.CardUIHelper;
-import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 public class ActivityPanier extends AppCompatActivity {
-
     TextView totalTV;
-
     View panierCard;
+    View recyclerView;
+    View viderPanierBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +32,15 @@ public class ActivityPanier extends AppCompatActivity {
         retourBtn.setOnClickListener(v -> CardUIHelper.endActivity(this, panierCard));
 
         // Set 'vider panier' button
-        Button viderPanierBtn = findViewById(R.id.panier_btnVider);
+        viderPanierBtn = findViewById(R.id.panier_btnVider);
         viderPanierBtn.setOnClickListener(this::onClearBasketClicked);
 
         // Set 'passer à la caisse' button
         Button finishedBuyingBtn = findViewById(R.id.panier_btnCaisse);
         finishedBuyingBtn.setOnClickListener(this::onFinishBuyingClicked);
 
-        Client.getPanier().setArticleAdapteur(this, findViewById(R.id.recyclePanier));
+        recyclerView = findViewById(R.id.recyclePanier);
+        Client.getPanier().setArticleAdapteur(this, (RecyclerView) recyclerView);
 
         totalTV = findViewById(R.id.panier_txt_prixTotal);
         Client.getPanier().addOnUpdateListener(this::onPanierUpdated);
@@ -52,7 +53,9 @@ public class ActivityPanier extends AppCompatActivity {
     }
 
     private void onClearBasketClicked(View v) {
-        // ...
+        Client.getPanier().clear();
+        ((ViewGroup) recyclerView).removeAllViews(); // TODO : INVESTIGATE WHY IT WORKS
+
     }
 
     private void onFinishBuyingClicked(View v) {
@@ -61,5 +64,9 @@ public class ActivityPanier extends AppCompatActivity {
 
     private void onPanierUpdated() {
         totalTV.setText(Client.getPanier().getTotal());
+
+        boolean isPanierEmpty = Client.getPanier().getItemCount() == 0;
+        viderPanierBtn.setAlpha(isPanierEmpty ? 0.5f : 1.0f);
+        viderPanierBtn.setClickable(!isPanierEmpty);
     }
 }

@@ -17,16 +17,16 @@ import com.example.pfi.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ArticleDisplay#newInstance} factory method to
+ * Use the {@link ArticleListeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ArticleDisplay extends Fragment {
+public class ArticleListeFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "ARTICLE";
 
     public Article article;
 
-    public ArticleDisplay() {
+    public ArticleListeFragment() {
         // Required empty public constructor
     }
 
@@ -36,8 +36,8 @@ public class ArticleDisplay extends Fragment {
      *
      * @return A new instance of fragment ArticleDisplay.
      */
-    public static ArticleDisplay newInstance(Article article) {
-        ArticleDisplay fragment = new ArticleDisplay();
+    public static ArticleListeFragment newInstance(Article article) {
+        ArticleListeFragment fragment = new ArticleListeFragment();
         Bundle args = new Bundle();
 
         // Put target article in the bundle

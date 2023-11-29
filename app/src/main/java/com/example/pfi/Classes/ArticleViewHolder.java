@@ -5,10 +5,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.example.pfi.Abstract.AdaptorViewHolder;
+import com.example.pfi.Helper.StringHelper;
 import com.example.pfi.R;
 
 public class ArticleViewHolder extends AdaptorViewHolder<Article> {
@@ -52,6 +54,10 @@ public class ArticleViewHolder extends AdaptorViewHolder<Article> {
 
         setAmountBtn(moreBtn, newAmount != item.getStockAmount());
         setAmountBtn(minusBtn, newAmount != 0);
+
+        if (newAmount == 0) {
+            Toast.makeText(this.itemView.getContext(), StringHelper.formatString(R.string.article_remove_on_update, item.getNom()), Toast.LENGTH_SHORT).show();
+        }
 
         onAmountChanged(newAmount);
     }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PFI</string>
+    <string name="retour_txt">BACK</string>
+    <string name="show_details">Show details</string>
+    <string name="activity_liste_name">List</string>
+    <string name="activity_product_details_name">Details</string>
+    <string name="navigation_panier">Review my purchases</string>
+    <string name="login_error">Your username or your password is incorrect</string>
+    <string name="login_titre">Login</string>
+    <string name="login_Entrez_nom">Enter your username</string>
+    <string name="login_Entrez_mdp">Enter your password</string>
+    <string name="login_btn_connection">Connexion</string>
+    <string name="article_no_name">No name</string>
+    <string name="article_no_description">No description</string>
+    <string name="article_no_price">No price</string>
+    <string name="article_name_banane">Banana</string>
+    <string name="article_name_carotte">Carrot</string>
+    <string name="article_name_pomme">Apple</string>
+    <string name="article_name_raisin">Grape</string>
+    <string name="article_name_peche">Peach</string>
+    <string name="article_name_pain">Bread</string>
+    <string name="article_name_mais">Corn</string>
+    <string name="article_name_lait">Milk</string>
+    <string name="article_name_beurre">Butter</string>
+    <string name="article_name_fromage">Cheese</string>
+    <string name="article_name_viande">Ham</string>
+    <string name="article_name_poisson">Fish</string>
+    <string name="article_name_homard">Lobster</string>
+    <string name="category_fruits">Fruits and Vegetables</string>
+    <string name="category_diary">Dairy</string>
+    <string name="category_meat">Meat, fish and seafood</string>
+    <string name="article_name_pois">Pea</string>
+    <string name="article_name_yaourt">Yogurt</string>
+    <string name="panier_titre">Groceries</string>
+    <string name="item_panier_quantité">quantity</string>
+    <string name="panier_viderPanier">Empty groceries</string>
+    <string name="panier_allerCaisse">Finialize purchase</string>
+    <string name="add_to_panier">Add to groceries</string>
+    <string name="remove_from_panier">Remove from groceries</string>
+    <string name="article_remove_on_update">${0} will be removed upon closing this page</string>
+    <string name="price_display">$ ${0}</string>
+    <string name="article_quantity_remaining">${0} in stock.</string>
+</resources>

@@ -1,5 +1,6 @@
 package com.example.pfi.Fragments;
 
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,34 +10,31 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Category;
 import com.example.pfi.Helper.FragmentHelper;
-import com.example.pfi.Logger;
+import com.example.pfi.Helper.SoundHelper;
 import com.example.pfi.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CategoryDisplay#newInstance} factory method to
+ * Use the {@link CategoryListeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CategoryDisplay extends Fragment {
+public class CategoryListeFragment extends Fragment {
     private static final String CATEGORY_NAME = "CATEGORY_NAME";
     private static final String CATEGORY_ARTICLES = "CATEGORY_ARTICLES";
 
     private int name;
     private ArrayList<Article> articles;
 
-    public CategoryDisplay() {
+    public CategoryListeFragment() {
         // Required empty public constructor
     }
 
@@ -46,8 +44,8 @@ public class CategoryDisplay extends Fragment {
      *
      * @return A new instance of fragment CategoryDisplay.
      */
-    public static CategoryDisplay newInstance(Category category) {
-        CategoryDisplay fragment = new CategoryDisplay();
+    public static CategoryListeFragment newInstance(Category category) {
+        CategoryListeFragment fragment = new CategoryListeFragment();
         Bundle args = new Bundle();
 
         // Put the name id of the given category in the bundle
@@ -86,25 +84,18 @@ public class CategoryDisplay extends Fragment {
 
         // Create fragments
         FragmentHelper.createFragments(
-                R.id.categoryDisplay_articlesGrid,
-                articles,
-                ArticleDisplay::newInstance,
-                getChildFragmentManager()
+            R.id.categoryDisplay_articlesGrid,
+            articles,
+            ArticleListeFragment::newInstance,
+            getChildFragmentManager()
         );
 
         articlesGrid = v.findViewById(R.id.categoryDisplay_articlesGrid);
 
         //click on arrow
         btn_see_Articles.setOnClickListener(view ->{
-            //Sound effect
-            mp.reset();
-            try {
-                mp.setDataSource(v.getContext(), Uri.parse("android.resource://" +v.getContext().getPackageName()+ "/raw/liste_see_more_less"));
-                mp.prepare();
-                mp.start();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // Sound effect
+            SoundHelper.playSound(mp, R.raw.liste_see_more_less);
 
             int visibility;
             int backgroundId;

@@ -4,11 +4,13 @@
         <item name="colorPrimaryDark">#4CAF50</item>
 
         <item name="main_color_fg">#4CAF50</item> <!-- #6551D3 -->
-        <item name="main_color_bg">#D84CAF50</item>
-
         <item name="second_color_fg">#832EAF0B</item>
 
-        <item name="main_title">#FFFFFF</item>
+        <item name="main_color_bg">#D84CAF50</item>
+        <item name="second_color_bg">#FFF</item>
+
+        <item name="main_title">#FFF</item>
+        <item name="liste_color_bg">#FFF</item>
     </style>
 
     <style name="Theme.PFI" parent="Base.Theme.PFI" />

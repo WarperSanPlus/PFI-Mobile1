@@ -51,10 +51,11 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="4dp"
                 android:background="@drawable/icone_menu"
-                android:contentDescription="@string/navigation_menu_langue"
+                android:backgroundTint="?android:textColorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/details_panierBtn"
@@ -63,6 +64,7 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="4dp"
                 android:background="@drawable/icone_panier"
+                android:backgroundTint="?android:textColorPrimary"
                 android:contentDescription="@string/navigation_panier"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/headerBar_menuBtn"

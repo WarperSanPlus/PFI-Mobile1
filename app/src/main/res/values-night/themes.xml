@@ -2,10 +2,12 @@
     <!-- dark application theme. -->
     <style name="Base.Theme.PFI" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="main_color_fg">#FF3622A1</item> <!-- #6551D3 -->
-        <item name="main_color_bg">#FF5141A5</item>
-
         <item name="second_color_fg">#49399e</item>
 
-        <item name="main_title">#FFFFFF</item>
+        <item name="main_color_bg">#FF5141A5</item>
+        <item name="second_color_bg">#FF5141A5</item>
+
+        <item name="main_title">#FFF</item>
+        <item name="liste_color_bg">#000</item>
     </style>
 </resources>

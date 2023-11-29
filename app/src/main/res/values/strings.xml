@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PFI</string>
-    <string name="placeholder">PLACEHOLDER</string>
+    <string name="placeholder" translatable="false">PLACEHOLDER</string>
 
     <string name="retour_txt">RETOUR</string>
     <string name="show_details">Afficher les détails</string>
@@ -9,7 +9,6 @@
     <string name="activity_liste_name">Liste</string>
     <string name="activity_product_details_name">Détails</string>
     <string name="navigation_panier">Voir mon panier</string>
-    <string name="navigation_menu_langue">Menu langue</string>
 
     <!-- TOASTS -->
     <string name="login_error">Votre nom ou votre mot de passe est invalide</string>
@@ -27,9 +26,9 @@
     <string name="category_meat">Viande, poisson et fruits de mer</string>
 
     <!-- ARTICLE -->
-    <string name="article_no_name">No name</string>
-    <string name="article_no_description">No description</string>
-    <string name="article_no_price">No price</string>
+    <string name="article_no_name">Nom indéfini</string>
+    <string name="article_no_description">Description indéfinie</string>
+    <string name="article_no_price">Prix indéfini</string>
 
     <string name="article_name_banane">Banane</string>
     <string name="article_name_carotte">Carotte</string>
@@ -51,24 +50,24 @@
     <string name="article_name_homard">Homard</string>
 
     <!-- ARTICLE PRIX -->
-    <string name="article_banane_prix">3.99</string>
-    <string name="article_carotte_prix">4.99</string>
-    <string name="article_pomme_prix">1.00</string>
-    <string name="article_raisin_prix">3.49</string>
-    <string name="article_peche_prix"> 2.00</string>
+    <string name="article_banane_prix" translatable="false">3.99</string>
+    <string name="article_carotte_prix" translatable="false">4.99</string>
+    <string name="article_pomme_prix" translatable="false">1.00</string>
+    <string name="article_raisin_prix" translatable="false">3.49</string>
+    <string name="article_peche_prix" translatable="false"> 2.00</string>
 
-    <string name="article_pois_prix">9.99</string>
-    <string name="article_pain_prix">2.50</string>
-    <string name="article_mais_prix">5.00</string>
+    <string name="article_pois_prix" translatable="false">9.99</string>
+    <string name="article_pain_prix" translatable="false">2.50</string>
+    <string name="article_mais_prix" translatable="false">5.00</string>
 
-    <string name="article_lait_prix">4.99</string>
-    <string name="article_beurre_prix">6.00</string>
-    <string name="article_yaourt_prix">7.50</string>
-    <string name="article_fromage_prix">10.99</string>
+    <string name="article_lait_prix" translatable="false">4.99</string>
+    <string name="article_beurre_prix" translatable="false">6.00</string>
+    <string name="article_yaourt_prix" translatable="false">7.50</string>
+    <string name="article_fromage_prix" translatable="false">10.99</string>
 
-    <string name="article_viande_prix">15.99</string>
-    <string name="article_poisson_prix">20.00</string>
-    <string name="article_homard_prix">22.50</string>
+    <string name="article_viande_prix" translatable="false">15.99</string>
+    <string name="article_poisson_prix" translatable="false">20.00</string>
+    <string name="article_homard_prix" translatable="false">22.50</string>
 
     <!-- ARTICLE descriptions  -->
     <string name="article_banane_desc">Moelleuse et incomparable, la banane est un fruit populaire pour son bon goût et sa polyvalence.</string>
@@ -95,9 +94,10 @@
     <string name="item_panier_quantité">quantité</string>
     <string name="panier_viderPanier">Vider le panier</string>
     <string name="panier_allerCaisse">Passer à la caisse</string>
-    <string name="panier_total_label">TOTAL : </string>
+    <string name="panier_total_label" translatable="false">TOTAL : </string>
     <string name="add_to_panier">Ajouter au panier</string>
     <string name="remove_from_panier">Retirer du panier</string>
+    <string name="article_remove_on_update">L\'article \'${0}\' va être retiré du panier lors de la fermeture de cette page</string>
 
     <!-- PRIX -->
     <string name="price_display">${0} $</string>

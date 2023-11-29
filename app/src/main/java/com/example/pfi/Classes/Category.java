@@ -3,6 +3,7 @@ package com.example.pfi.Classes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
+import com.example.pfi.Config;
 import com.example.pfi.Helper.ResourcesManager;
 import com.example.pfi.Helper.XMLHelper;
 import com.example.pfi.Logger;
@@ -51,8 +52,6 @@ public class Category implements Comparable<Category> {
 
         this.articles.addAll(articles);
         this.sortArticles();
-
-        Logger.log("\"" + getNom() + "\" has " + this.articles.size() + " articles.");
     }
 
     // region Static
@@ -61,7 +60,8 @@ public class Category implements Comparable<Category> {
      * @return Categories loaded by the application.
      */
     public static ArrayList<Category> loadCategories() {
-        Logger.log("*** LOADING CATEGORIES ***");
+        if (Config.AUDIT_OBJECT_LOAD)
+            Logger.log("*** LOADING CATEGORIES ***");
         ArrayList<Category> categories = XMLHelper.initializeObjects("categories.xml", MAIN_TAG, SECOND_TAG, Category::parseCategory);
 
         // Sort categories
@@ -93,13 +93,17 @@ public class Category implements Comparable<Category> {
                     else if (n.equals(Article.MAIN_TAG)){
                         lookingForArticles = !lookingForArticles;
                     }
-                    else if(lookingForArticles && n.equals(Article.SECOND_TAG)) {
+                    else if (lookingForArticles && n.equals(Article.SECOND_TAG)) {
                         articles.add(Article.parseArticle(parser));
                     }
                 }
 
                 eventType = parser.next();
             }
+
+            if (Config.AUDIT_OBJECT_LOAD)
+                Logger.log("--- LOADING ENDED ---");
+
             return new Category(ResourcesManager.getStringIdentifier(name), articles);
         } catch (Exception e) {
             throw new RuntimeException(e);
