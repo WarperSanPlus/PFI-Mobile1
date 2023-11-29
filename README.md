@@ -7,6 +7,8 @@
 - [ ] Vider panier
 - [ ] Remove unnecessary listeners
 - [ ] Confirmer achat
+- [ ] Fix reload duplicates
+- [ ] Allow to switch between langs
 # WIP
 - [ ] Afficher la liste des produits (Convert category display to recycler view)
 - [ ] RecyclerView (ActivityListe)
