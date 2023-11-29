@@ -1,10 +1,14 @@
 package com.example.pfi.Helper;
 
+import android.app.Activity;
+
 import androidx.annotation.IdRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.pfi.Classes.Article;
 
 import java.util.ArrayList;
 import java.util.function.Function;

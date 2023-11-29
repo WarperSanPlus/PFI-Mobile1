@@ -1,4 +1,4 @@
-package com.example.pfi.Classes;
+package com.example.pfi.ViewHolders;
 
 import android.content.res.ColorStateList;
 import android.view.View;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.pfi.Abstract.AdaptorViewHolder;
+import com.example.pfi.Classes.Article;
+import com.example.pfi.Classes.Client;
 import com.example.pfi.Helper.StringHelper;
 import com.example.pfi.R;
 

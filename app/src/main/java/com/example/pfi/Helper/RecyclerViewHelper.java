@@ -24,7 +24,7 @@ public abstract class RecyclerViewHelper {
             ArrayList<T> items,
             Function2<Context, ArrayList<T>, Adaptor<T, U>> getAdaptor
     ) {
-        Adaptor<T, U> adaptor = getAdaptor.invoke(activity.getApplicationContext(), items);
+        Adaptor<T, U> adaptor = getAdaptor.invoke(activity, items);
         recyclerView.setAdapter(adaptor);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));

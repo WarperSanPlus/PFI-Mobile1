@@ -14,6 +14,7 @@ import com.example.pfi.Fragments.CategoryListeFragment;
 import com.example.pfi.Helper.DialogHelper;
 import com.example.pfi.Helper.FragmentHelper;
 import com.example.pfi.Helper.HeaderBarHelper;
+import com.example.pfi.Helper.RecyclerViewHelper;
 import com.example.pfi.Helper.SoundHelper;
 import com.example.pfi.R;
 

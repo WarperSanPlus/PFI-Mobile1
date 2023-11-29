@@ -1,9 +1,5 @@
 package com.example.pfi.Helper;
 
-import com.example.pfi.Logger;
-
-import java.util.concurrent.Callable;
-
 /**
  * Useful for starting threads
  */

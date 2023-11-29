@@ -1,10 +1,12 @@
-package com.example.pfi.Classes;
+package com.example.pfi.Adaptors;
 
 import android.content.Context;
 import android.view.View;
 
 import com.example.pfi.Abstract.Adaptor;
+import com.example.pfi.Classes.Article;
 import com.example.pfi.R;
+import com.example.pfi.ViewHolders.ArticleViewHolder;
 
 import java.util.ArrayList;
 

@@ -1,15 +1,13 @@
 package com.example.pfi.Classes;
 
 import android.app.Activity;
-import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pfi.Abstract.Panier;
+import com.example.pfi.Adaptors.ArticleAdaptateur;
 import com.example.pfi.Helper.RecyclerViewHelper;
-import com.example.pfi.Logger;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class PanierArticle extends Panier<Article> {
