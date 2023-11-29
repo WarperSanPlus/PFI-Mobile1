@@ -8,7 +8,7 @@
 - [ ] 5 activités (Login, Liste, Details, Panier)
 - [ ] Panier
 - [ ] Client
-- [ ] Delete single 
+- [ ] Delete single item in ActivityPanier
 # DONE
 - [x] Produit (Article)
 - [x] 4+ images
