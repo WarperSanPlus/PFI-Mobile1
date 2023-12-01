@@ -28,28 +28,37 @@ public class ActivityProductDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
-        // HeaderBarHelper.setHeaderBar(this, R.string.activity_product_details_name);
+        //Animation
+        productDetailsCard = findViewById(R.id.details_card);
+        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_card);
+        productDetailsCard.startAnimation(aniSlide);
 
-        //Article envoyé par ProductPreviewDialog
-        Article article = (Article) getIntent().getSerializableExtra(SELECTED_ARTICLE);
-
-        if (article != null)
-            setArticle(article);
-
-        // Btn RETOUR
+        // Btn RETOUR (arrow)
         ImageButton btn_retour = findViewById(R.id.details_btnRetour);
         btn_retour.setOnClickListener(view -> CardUIHelper.endActivity(this, productDetailsCard));
 
-        // Btn Panier
+        // Btn Panier (icon panier)
         ImageButton panierBtn = findViewById(R.id.details_panierBtn);
         panierBtn.setOnClickListener(v -> IntentHelper.closeAndMove(ActivityProductDetails.this, ActivityPanier.class, null));
 
-        // L'autre btn
+        // Btn du bas (add to basket OR emptying basket)
         Button btn_actionPanier = findViewById(R.id.details_actionPanier);
 
-        int btnPanierText = Client.getPanier().hasItem(article) ? R.string.remove_from_panier : R.string.add_to_panier;
-        btn_actionPanier.setText(btnPanierText);
+        //Article send by ProductPreviewDialog
+        Article article = (Article) getIntent().getSerializableExtra(SELECTED_ARTICLE);
 
+        if (article != null)
+        {
+            setArticle(article);
+
+            //basket already has item?
+            int btnPanierText = Client.getPanier().hasItem(article) ? R.string.remove_from_panier : R.string.add_to_panier;
+            btn_actionPanier.setText(btnPanierText);
+
+            btn_actionPanier.setVisibility(article.getStockAmount() == 0 ? View.GONE : View.VISIBLE);
+        }
+
+        // Click btn_actionPanier
         btn_actionPanier.setOnClickListener(view -> {
             int amount = Client.getPanier().hasItem(article) ? -Client.getPanier().getItemAmount(article) : 1;
 
@@ -58,9 +67,7 @@ public class ActivityProductDetails extends AppCompatActivity {
             IntentHelper.closeAndMove(ActivityProductDetails.this, ActivityPanier.class, null);
         });
 
-        productDetailsCard = findViewById(R.id.details_card);
-        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_card);
-        productDetailsCard.startAnimation(aniSlide);
+
     }
 
     @SuppressLint("SetTextI18n")

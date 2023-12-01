@@ -7,8 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pfi.Abstract.Panier;
 import com.example.pfi.Adaptors.ArticleAdaptateur;
 import com.example.pfi.Helper.RecyclerViewHelper;
+import com.example.pfi.Logger;
 
 import java.util.ArrayList;
+
+import kotlin.jvm.functions.Function2;
 
 public class PanierArticle extends Panier<Article> {
 
@@ -27,10 +30,28 @@ public class PanierArticle extends Panier<Article> {
 
         // Cette fonction sert à conserver 'items' privé pour l'extérieur.
     }
-
     // endregion
+
+    @Override
+    protected void onConsume(Article item, int amount) {
+        for (Category c : Client.categories)
+        {
+            Article a = c.getArticle(item, (article, article2) -> article.compareTo(article2) == 0);
+
+            if (a == null)
+                continue;
+
+            a.removeStockAmount(amount);
+            break;
+        }
+    }
+
     // region Total
 
+    /**
+     *
+     * @return prix total des articles
+     */
     public String getTotal() {
         double total = 0;
 

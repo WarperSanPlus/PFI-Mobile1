@@ -8,6 +8,7 @@
     <string name="activity_liste_name">Liste</string>
     <string name="activity_product_details_name">Détails</string>
     <string name="navigation_panier">Voir mon panier</string>
+    <string name="navigation_language">Changer langue</string>
 
     <!-- TOASTS -->
     <string name="login_error">Votre nom ou votre mot de passe est invalide</string>
@@ -104,4 +105,10 @@
     <!-- PRODUCT PREVIEW -->
     <string name="article_quantity_remaining">Il reste ${0} en stock.</string>
     <string name="retour_txt">RETOUR</string>
+
+    <!--CONFIRMATION DIALOG-->
+    <string name="confirmation_texte">Voulez-vous vraiment acheter le panier?</string>
+    <string name="confirmation_btn_oui">Oui</string>
+    <string name="confirmation_btn_non">Non</string>
+    <string name="purchase_confirmed">Votre achat de ${0} a été réalisé sans problème!</string>
 </resources>

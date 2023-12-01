@@ -3,8 +3,6 @@ package com.example.pfi.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
@@ -17,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Toast;
-
 import com.example.pfi.Classes.Client;
 import com.example.pfi.Config;
 import com.example.pfi.Helper.IntentHelper;
@@ -46,18 +43,18 @@ public class LoginActivity extends AppCompatActivity {
             onSuccessfulLogin("DEBUG_CLIENT", "DEFAULT");
         }
 
-        // Récupération des views
         edit_nom = findViewById(R.id.login_edit_nom);
         edit_mdp = findViewById(R.id.login_edit_mdp);
         Button btn = findViewById(R.id.login_btn_connection);
 
-        // Click bouton
+        // Add onclick btn connexion
         btn.setOnClickListener(this::onConnectionBtnClicked);
 
         createMenu();
     }
 
     Thread loginThread = null;
+
     private void onConnectionBtnClicked(View view) {
         // Récupération nom & mot de passe du client
         String username = edit_nom.getText().toString();
@@ -83,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                     Thread.sleep(3000); // "loading" ...
                 }
 
-                // Vérification du mot de passe
+                // Verify the password
                 boolean isPasswordValid = Client.isPasswordValid(username, password);
 
                 // Play sound
@@ -110,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    // --- MENU ---
+    // --- MENU --- //
     private void createMenu() {
         // Set buttons
         ImageButton menuBtn = findViewById(R.id.login_menuBtn);
@@ -147,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private Locale getNextLang() {
-        return getCurrentLang().toLanguageTag().equals("en") ? Locale.getDefault() : new Locale("en");
+        return new Locale(getCurrentLang().toLanguageTag().startsWith("en") ? "fr" : "en");
     }
 
     private Locale getCurrentLang() {

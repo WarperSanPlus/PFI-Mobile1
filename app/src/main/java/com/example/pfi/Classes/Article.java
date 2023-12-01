@@ -99,6 +99,11 @@ public class Article extends Product {
     public static final String MAIN_TAG = "articles";
     public static final String SECOND_TAG = "article";
 
+    /**
+     *
+     * @param parser
+     * @return instance article (icon, name, description, price, quantity)
+     */
     public static Article parseArticle(XmlPullParser parser) {
         if (Config.AUDIT_OBJECT_LOAD)
             Logger.log("*** LOADING ARTICLE ***");

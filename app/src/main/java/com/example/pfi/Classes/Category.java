@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.function.Function;
 
+import kotlin.jvm.functions.Function2;
+
 public class Category implements Comparable<Category> {
     // region Nom
     private @StringRes int nomId;
@@ -34,13 +36,21 @@ public class Category implements Comparable<Category> {
     }
     // endregion
     // region Articles
-    private ArrayList<Article> articles = new ArrayList<>();
+    private final ArrayList<Article> articles = new ArrayList<>();
 
     public void sortArticles() {
         articles.sort(Comparator.comparing(Article::getNom));
     }
 
     public ArrayList<Article> getArticles() { return articles; }
+
+    public Article getArticle(Article src, Function2<Article, Article, Boolean> comparator) {
+        for (int i = 0; i < articles.size(); i++) {
+            if (comparator.invoke(articles.get(i), src))
+                return articles.get(i);
+        }
+        return null;
+    }
 
     // endregion
 

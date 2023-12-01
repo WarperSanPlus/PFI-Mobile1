@@ -6,6 +6,7 @@
     <string name="activity_liste_name">List</string>
     <string name="activity_product_details_name">Details</string>
     <string name="navigation_panier">Review my purchases</string>
+    <string name="navigation_language">Change language</string>
     <string name="login_error">Your username or your password is incorrect</string>
     <string name="login_titre">Login</string>
     <string name="login_Entrez_nom">Enter your username</string>
@@ -30,8 +31,29 @@
     <string name="category_fruits">Fruits and Vegetables</string>
     <string name="category_diary">Dairy</string>
     <string name="category_meat">Meat, fish and seafood</string>
+    <string name="category_cereals">Cereals products</string>
     <string name="article_name_pois">Pea</string>
     <string name="article_name_yaourt">Yogurt</string>
+    <!--DESCRIPTION-->
+    <string name="article_banane_desc">Soft and unmistakable, the banana is a popular fruit for its great taste and versatility.</string>
+    <string name="article_carotte_desc">An excellent source of vitamin A and dietary fiber, carrots are mostly served as a side dish when they could be the star of the show.</string>
+    <string name="article_pomme_desc">For a sweet and tangy touch in your soups, consider adding apples to your recipes.</string>
+    <string name="article_raisin_desc">Grapes are a good source of potassium and contain vitamin C, thiamine and vitamin B6.</string>
+    <string name="article_peche_desc"> Peach is packed with vitamins, dietary fiber and antioxidants, but to get the full benefits, it is essential to consume them with the skin</string>
+
+    <string name="article_pois_desc">With a relatively mushy texture, these seeds lend themselves to an infinite variety of preparations from starters, soups and main courses</string>
+    <string name="article_pain_desc">Fresh and delicious bread to accompany your meals and snacks.</string>
+    <string name="article_mais_desc">Corn is one of the most versatile ingredients that can be used in many recipes</string>
+
+    <string name="article_lait_desc">This milk is a Quebec food that stands out thanks to its rich and creamy taste.</string>
+    <string name="article_beurre_desc">Butter, delicious and versatile, is an essential ingredient on every cook\'s grocery list. Butter really enhances the taste of dishes.</string>
+    <string name="article_yaourt_desc">Yogurt, made from Canadian milk, is a true dairy delight.</string>
+    <string name="article_fromage_desc">You will discover tasty cheeses in all regions of Quebec. And it\'s all available at a grocery store near you!</string>
+
+    <string name="article_viande_desc">We offer quality local meats, tasty fish and seafood and more.</string>
+    <string name="article_poisson_desc">This fish paste is a source of omega-3 polyunsaturated and protein. It is free of preservatives and no artificial flavours or colours.</string>
+    <string name="article_homard_desc">Our lobsters all come from the Atlantic. Lobster meat is low in calories and is an excellent source of protein and omega-3s.</string>
+
     <string name="panier_titre">Groceries</string>
     <string name="item_panier_quantité">quantity</string>
     <string name="panier_viderPanier">Empty groceries</string>
@@ -41,4 +63,9 @@
     <string name="article_remove_on_update">${0} will be removed upon closing this page</string>
     <string name="price_display">$ ${0}</string>
     <string name="article_quantity_remaining">${0} in stock.</string>
+
+    <string name="confirmation_texte">Are you sure you want to buy all of this?</string>
+    <string name="confirmation_btn_oui">Yes</string>
+    <string name="confirmation_btn_non">No</string>
+    <string name="purchase_confirmed">Your purchase totalling to ${0} was correctly proccessed!</string>
 </resources>

@@ -2,7 +2,6 @@ package com.example.pfi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +10,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.example.pfi.Classes.Client;
+import com.example.pfi.Dialogs.ConfirmationAchatsDialog;
 import com.example.pfi.Helper.CardUIHelper;
+import com.example.pfi.Helper.DialogHelper;
 import com.example.pfi.R;
 
 public class ActivityPanier extends AppCompatActivity {
@@ -21,6 +21,7 @@ public class ActivityPanier extends AppCompatActivity {
     View panierCard;
     View recyclerView;
     View viderPanierBtn;
+    View finishedBuyingBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,10 @@ public class ActivityPanier extends AppCompatActivity {
         setContentView(R.layout.activity_panier);
 
         panierCard = findViewById(R.id.panier_card);
+
+        //Animation of layout
+        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_card);
+        panierCard.startAnimation(aniSlide);
 
         // Set 'retour' button
         ImageButton retourBtn = findViewById(R.id.panier_btnRetour);
@@ -38,19 +43,17 @@ public class ActivityPanier extends AppCompatActivity {
         viderPanierBtn.setOnClickListener(this::onClearBasketClicked);
 
         // Set 'passer à la caisse' button
-        Button finishedBuyingBtn = findViewById(R.id.panier_btnCaisse);
+        finishedBuyingBtn = findViewById(R.id.panier_btnCaisse);
         finishedBuyingBtn.setOnClickListener(this::onFinishBuyingClicked);
 
         recyclerView = findViewById(R.id.recyclePanier);
         Client.getPanier().setArticleAdapteur(this, (RecyclerView) recyclerView);
 
+        //Set 'prix total'
         totalTV = findViewById(R.id.panier_txt_prixTotal);
         Client.getPanier().addOnUpdateListener(this::onPanierUpdated);
 
         onPanierUpdated();
-
-        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_card);
-        panierCard.startAnimation(aniSlide);
     }
 
     private void onClearBasketClicked(View v) {
@@ -59,14 +62,21 @@ public class ActivityPanier extends AppCompatActivity {
     }
 
     private void onFinishBuyingClicked(View v) {
-        // ...
+        DialogHelper.openDialog(() -> new ConfirmationAchatsDialog(Client.getPanier()), getSupportFragmentManager(), this.toString());
     }
 
     private void onPanierUpdated() {
         totalTV.setText(Client.getPanier().getTotal());
 
         boolean isPanierEmpty = Client.getPanier().getItemCount() == 0;
+
+        //if panier empty -> cannot buy (finishedBuyingBtn) and cannot empty panier(viderPanierBtn)
+
+        finishedBuyingBtn.setAlpha(isPanierEmpty ? 0.5f : 1.0f);
+        finishedBuyingBtn.setClickable(!isPanierEmpty);
+
         viderPanierBtn.setAlpha(isPanierEmpty ? 0.5f : 1.0f);
         viderPanierBtn.setClickable(!isPanierEmpty);
+
     }
 }

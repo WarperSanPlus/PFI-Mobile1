@@ -3,6 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="stock_running_out">#FF00FF00</color>
-    <color name="sufficient_stock">#FFFF0000</color>
+    <color name="stock_running_out">#FFFF0000</color>
+    <color name="sufficient_stock">#FF00FF00</color>
 </resources>

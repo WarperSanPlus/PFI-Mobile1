@@ -23,8 +23,8 @@
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
-                android:src="@drawable/logo_placeholder"
-                android:visibility="gone"
+                android:src="@drawable/logo"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

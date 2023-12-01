@@ -10,6 +10,9 @@ import com.example.pfi.ViewHolders.ArticleViewHolder;
 
 import java.util.ArrayList;
 
+/**
+ * Pour le recyclerView du Panier
+ */
 public class ArticleAdaptateur extends Adaptor<Article, ArticleViewHolder> {
     public ArticleAdaptateur(Context ctx, ArrayList<Article> items) {
         super(ctx, items);

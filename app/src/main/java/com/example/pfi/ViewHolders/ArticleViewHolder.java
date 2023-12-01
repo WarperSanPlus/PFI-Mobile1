@@ -1,6 +1,7 @@
 package com.example.pfi.ViewHolders;
 
 import android.content.res.ColorStateList;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.example.pfi.Abstract.AdaptorViewHolder;
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Client;
 import com.example.pfi.Helper.StringHelper;
+import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 public class ArticleViewHolder extends AdaptorViewHolder<Article> {
@@ -23,6 +25,7 @@ public class ArticleViewHolder extends AdaptorViewHolder<Article> {
     ImageButton moreBtn;
     ImageButton minusBtn;
     TextView quantityTV;
+    ImageButton deleteBtn;
 
     public ArticleViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -33,6 +36,7 @@ public class ArticleViewHolder extends AdaptorViewHolder<Article> {
 
         moreBtn = itemView.findViewById(R.id.item_panier_plus);
         minusBtn = itemView.findViewById(R.id.item_panier_moins);
+        deleteBtn = itemView.findViewById(R.id.item_panier_btn_delete);
         quantityTV = itemView.findViewById(R.id.item_panier_quantite);
     }
 
@@ -44,7 +48,7 @@ public class ArticleViewHolder extends AdaptorViewHolder<Article> {
 
         moreBtn.setOnClickListener(v -> updateItemAmount(item, 1));
         minusBtn.setOnClickListener(v -> updateItemAmount(item, -1));
-
+        deleteBtn.setOnClickListener(v -> updateItemAmount(item, -item.getStockAmount()));
         updateItemAmount(item, 0);
 
         onAmountChanged(Client.getPanier().getItemAmount(item));
@@ -52,6 +56,7 @@ public class ArticleViewHolder extends AdaptorViewHolder<Article> {
 
     private void updateItemAmount(Article item, int amount) {
         Client.getPanier().addItem(item, amount);
+
         int newAmount = Client.getPanier().getItemAmount(item);
 
         setAmountBtn(moreBtn, newAmount != item.getStockAmount());

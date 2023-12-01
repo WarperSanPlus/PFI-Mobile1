@@ -12,9 +12,11 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.pfi.Activities.ActivityProductDetails;
 import com.example.pfi.Classes.Article;
+import com.example.pfi.Classes.Client;
 import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.Helper.ResourcesManager;
 import com.example.pfi.Helper.StringHelper;
+import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 public class ProductPreviewDialog extends DialogFragment {

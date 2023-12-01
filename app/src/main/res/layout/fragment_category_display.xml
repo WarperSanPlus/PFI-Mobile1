@@ -25,6 +25,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"
+                android:textColor="?attr/main_title"
                 android:text="@string/placeholder"
                 android:textAlignment="textStart"
                 android:textSize="24sp"
@@ -35,7 +36,8 @@
                 android:layout_width="92dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:background="@drawable/category_see_more_article" />
+                android:background="@drawable/category_see_more_article"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>
 

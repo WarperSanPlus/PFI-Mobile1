@@ -2,10 +2,8 @@ package com.example.pfi.Activities;
 
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
-
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Category;
 import com.example.pfi.Classes.Client;
@@ -14,7 +12,6 @@ import com.example.pfi.Fragments.CategoryListeFragment;
 import com.example.pfi.Helper.DialogHelper;
 import com.example.pfi.Helper.FragmentHelper;
 import com.example.pfi.Helper.HeaderBarHelper;
-import com.example.pfi.Helper.RecyclerViewHelper;
 import com.example.pfi.Helper.SoundHelper;
 import com.example.pfi.R;
 
@@ -52,6 +49,6 @@ public class ActivityListe extends AppCompatActivity {
         DialogHelper.openDialog(() -> new ProductPreviewDialog(article), getSupportFragmentManager(), this.toString());
 
         mp = SoundHelper.playSound(mp, R.raw.liste_see_more_less);
-        //playSound(Uri.parse("android.resource://" + this.getPackageName()+ "/raw/liste_see_more_less"));
+
     }
 }
