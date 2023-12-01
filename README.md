@@ -1,14 +1,10 @@
 # TODO
-- [ ] DataBinding
-- [ ] 2+ vidéos
-- [ ] 8 commentaires Javadocs (classes, méthodes, noms des auteurs)
-- [ ] Vider panier
-- [ ] Confirmer achat
+- [ ] Icon de l'app
 # WIP
 - [ ] 5 activités (Login, Liste, Details, Panier)
-- [ ] Panier
 - [ ] Client
-- [ ] Delete single 
+- [x] 2+ vidéos (Confirmer achat, Account)
+- [ ] DataBinding
 # DONE
 - [x] Produit (Article)
 - [x] 4+ images
@@ -23,9 +19,12 @@
 - [x] Multi-threading
 - [x] 2+ notifications (Article remove, Invalid login)
 - [x] Ajouter un launcher icon
+- [x] Delete single item in ActivityPanier
+- [x] Vider panier
+- [x] Confirmer achat
+- [x] Panier
+- [x] 8 commentaires Javadocs (classes, méthodes, noms des auteurs)
 # CANCELLED
-- [ ] Afficher la liste des produits (Convert category display to recycler view)
-- [ ] RecyclerView (ActivityListe)
 - [ ] Fix reload duplicates
 - [ ] Remove unnecessary listeners
 - [ ] Thread Management
