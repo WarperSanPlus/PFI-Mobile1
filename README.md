@@ -1,5 +1,4 @@
 # TODO
-- [ ] Icon de l'app
 # WIP
 - [ ] 5 activités (Login, Liste, Details, Panier)
 - [ ] Client
@@ -24,6 +23,7 @@
 - [x] Confirmer achat
 - [x] Panier
 - [x] 8 commentaires Javadocs (classes, méthodes, noms des auteurs)
+- [x] Icon de l'app
 # CANCELLED
 - [ ] Fix reload duplicates
 - [ ] Remove unnecessary listeners
