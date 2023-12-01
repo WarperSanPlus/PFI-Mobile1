@@ -8,7 +8,6 @@
 - [ ] 5 activités (Login, Liste, Details, Panier)
 - [ ] Panier
 - [ ] Client
-- [ ] Delete single item in ActivityPanier
 # DONE
 - [x] Produit (Article)
 - [x] 4+ images
@@ -23,6 +22,7 @@
 - [x] Multi-threading
 - [x] 2+ notifications (Article remove, Invalid login)
 - [x] Ajouter un launcher icon
+- [x] Delete single item in ActivityPanier
 # CANCELLED
 - [ ] Afficher la liste des produits (Convert category display to recycler view)
 - [ ] RecyclerView (ActivityListe)
