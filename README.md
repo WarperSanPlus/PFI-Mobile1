@@ -2,7 +2,7 @@
 # WIP
 - [ ] 5 activités (Login, Liste, Details, Panier)
 - [ ] Client
-- [x] 2+ vidéos (Confirmer achat, Account)
+- [ ] 2+ vidéos (Confirmer achat, Account)
 - [ ] DataBinding
 # DONE
 - [x] Produit (Article)
