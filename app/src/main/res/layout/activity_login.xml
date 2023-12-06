@@ -1,142 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login_layout1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="5dp"
-    android:background="?attr/main_color_fg"
-    tools:context=".Activities.LoginActivity">
-
-    <TextView
-        android:id="@+id/login_titre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:fontFamily="serif"
-        android:text="@string/login_titre"
-        android:textAlignment="center"
-        android:textColor="?attr/main_title"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
-
-    <ImageButton
-        android:id="@+id/login_menuBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/icone_menu"
-        android:backgroundTint="?android:textColorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="client"
+            type="com.example.pfi.Client" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/login_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="10dp"
-        android:background="?attr/popupMenuBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_titre">
+        android:id="@+id/login_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="?attr/main_color_fg"
+        tools:context=".Activities.LoginActivity">
 
-        <ImageView
-            android:id="@+id/login_img"
-            android:layout_width="131dp"
-            android:layout_height="107dp"
-
-            android:layout_marginTop="10dp"
-            android:importantForAccessibility="no"
+        <TextView
+            android:id="@+id/login_titre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:fontFamily="serif"
+            android:text="@string/login_titre"
+            android:textAlignment="center"
+            android:textColor="?attr/main_title"
+            android:textSize="34sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/login" />
+            tools:ignore="TextContrastCheck" />
 
-        <EditText
-            android:id="@+id/login_edit_nom"
+        <ImageButton
+            android:id="@+id/login_menuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/icone_menu"
+            android:backgroundTint="?android:textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="10dp"
-            android:autofillHints="@string/login_Entrez_nom"
             android:background="?attr/popupMenuBackground"
-            android:backgroundTint="#1B4E954E"
-            android:drawableStart="@drawable/login_nom"
-            android:drawablePadding="10dp"
-            android:drawableTint="?attr/main_color_fg"
-            android:drawableTintMode="add"
-            android:fontFamily="serif"
-            android:hint="@string/login_Entrez_nom"
-            android:inputType="text"
-            android:padding="10dp"
-            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_img"
-            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+            app:layout_constraintTop_toBottomOf="@+id/login_titre">
 
-        <EditText
-            android:id="@+id/login_edit_mdp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:autofillHints="@string/login_Entrez_mdp"
-            android:background="?attr/popupMenuBackground"
-            android:backgroundTint="#1B4E954E"
-            android:drawableStart="@android:drawable/ic_lock_idle_lock"
-            android:drawablePadding="10dp"
-            android:drawableTint="?attr/main_color_fg"
-            android:drawableTintMode="add"
-            android:fontFamily="serif"
-            android:hint="@string/login_Entrez_mdp"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_edit_nom"
-            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+            <ImageView
+                android:id="@+id/login_img"
+                android:layout_width="131dp"
+                android:layout_height="107dp"
 
-        <Button
-            android:id="@+id/login_btn_connection"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:importantForAccessibility="no"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/login" />
 
-            android:layout_marginTop="40dp"
+            <EditText
+                android:id="@+id/login_edit_nom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints="@string/login_Entrez_nom"
+                android:background="?attr/popupMenuBackground"
+                android:backgroundTint="#1B4E954E"
+                android:drawableStart="@drawable/login_nom"
+                android:drawablePadding="10dp"
+                android:drawableTint="?attr/main_color_fg"
+                android:drawableTintMode="add"
+                android:fontFamily="serif"
+                android:hint="@string/login_Entrez_nom"
+                android:inputType="text"
+                android:text="@={client.username}"
+                android:padding="10dp"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_img"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="30dp"
-            android:backgroundTint="?attr/main_color_fg"
-            android:fontFamily="serif"
-            android:text="@string/login_btn_connection"
-            android:textColor="?attr/main_title"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:cornerRadius="@dimen/cardview_compat_inset_shadow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_edit_mdp"
-            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
+            <EditText
+                android:id="@+id/login_edit_mdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints="@string/login_Entrez_mdp"
+                android:background="?attr/popupMenuBackground"
+                android:backgroundTint="#1B4E954E"
+                android:drawableStart="@android:drawable/ic_lock_idle_lock"
+                android:drawablePadding="10dp"
+                android:drawableTint="?attr/main_color_fg"
+                android:drawableTintMode="add"
+                android:fontFamily="serif"
+                android:hint="@string/login_Entrez_mdp"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_edit_nom"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+            <Button
+                android:id="@+id/login_btn_connection"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+
+                android:layout_marginTop="40dp"
+
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="?attr/main_color_fg"
+                android:fontFamily="serif"
+                android:text="@string/login_btn_connection"
+                android:textColor="?attr/main_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_edit_mdp"
+                tools:ignore="TextContrastCheck,VisualLintButtonSize" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

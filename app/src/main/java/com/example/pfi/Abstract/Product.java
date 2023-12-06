@@ -1,7 +1,5 @@
 package com.example.pfi.Abstract;
 
-import com.example.pfi.Logger;
-
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -13,10 +11,6 @@ public abstract class Product implements Serializable, Comparable<Product> {
     private int stockRemaining;
 
     public int getStockAmount() { return stockRemaining; }
-
-    public void removeStockAmount(int amount) {
-        stockRemaining -= amount;
-    }
     // endregion
 
     public Product(int stockRemaining) {

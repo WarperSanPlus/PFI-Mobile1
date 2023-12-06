@@ -21,11 +21,6 @@ public abstract class Config {
      * Simulates the time needed to fetch to a database if the login is valid or not
      */
     public static final boolean ENABLE_ARTIFICIAL_FETCH_TIME = false;
-
-    /**
-     * Enables to play the video when confirming the basket
-     */
-    public static final boolean ENABLE_CONFIRM_PURCHASE_VIDEO = true;
     // endregion
     // region AUDIT
     /**

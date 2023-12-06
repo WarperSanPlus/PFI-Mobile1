@@ -1,6 +1,7 @@
 package com.example.pfi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.annotation.SuppressLint;
 import android.content.res.Configuration;
@@ -10,12 +11,10 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Toast;
-import com.example.pfi.Classes.Client;
+import com.example.pfi.Client;
 import com.example.pfi.Config;
 import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.Helper.ResourcesManager;
@@ -23,32 +22,36 @@ import com.example.pfi.Helper.SoundHelper;
 import com.example.pfi.Helper.ThreadHelper;
 import com.example.pfi.Logger;
 import com.example.pfi.R;
+import com.example.pfi.databinding.ActivityLoginBinding;
 
 import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
+    ActivityLoginBinding binding;
     private EditText edit_nom;
     private EditText edit_mdp;
     MediaPlayer mp = new MediaPlayer();
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
+        //setContentView(R.layout.activity_login);
+        binding = DataBindingUtil.setContentView (LoginActivity.this, R.layout.activity_login);
+       // binding.setClient(new Client("kjnbh", "kjhb"));
         ResourcesManager.Context = this;
 
         // if automatic login is checked
-        if (Config.ENABLE_AUTOMATIC_LOGIN) {
+         /*   if (Config.ENABLE_AUTOMATIC_LOGIN) {
             Logger.log("*** Automatically logged in ***");
             onSuccessfulLogin("DEBUG_CLIENT", "DEFAULT");
-        }
+        }*/
 
         edit_nom = findViewById(R.id.login_edit_nom);
         edit_mdp = findViewById(R.id.login_edit_mdp);
-        Button btn = findViewById(R.id.login_btn_connection);
+
 
         // Add onclick btn connexion
-        btn.setOnClickListener(this::onConnectionBtnClicked);
+        binding.loginBtnConnection.setOnClickListener(this::onConnectionBtnClicked);
 
         createMenu();
     }
@@ -56,9 +59,6 @@ public class LoginActivity extends AppCompatActivity {
     Thread loginThread = null;
 
     private void onConnectionBtnClicked(View view) {
-        // Récupération nom & mot de passe du client
-        String username = edit_nom.getText().toString();
-        String password = edit_mdp.getText().toString();
 
         if (loginThread != null)
             return;
@@ -81,13 +81,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 // Verify the password
-                boolean isPasswordValid = Client.isPasswordValid(username, password);
-
+                boolean isPasswordValid = Client.isPasswordValid(binding.loginEditNom.getText().toString(), binding.loginEditMdp.getText().toString());
+                binding.setClient(new Client(binding.loginEditNom.getText().toString(), binding.loginEditMdp.getText().toString()));
                 // Play sound
                 mp = SoundHelper.playSound(mp, isPasswordValid ? R.raw.login_access_accepted : R.raw.login_access_denied);
 
                 if (isPasswordValid) // Login in
-                    onSuccessfulLogin(username, password);
+                    onSuccessfulLogin(binding.getClient().getUsername(), binding.loginEditMdp.getText().toString());
                 else // Show error
                     showToast(ResourcesManager.getString(R.string.login_error));
 
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onSuccessfulLogin(String name, String password) {
-        Client.setClient(name);
+        Client.setClient(binding.getClient().getUsername());
         IntentHelper.moveToActivity(this, ActivityListe.class, null);
         mp = null;
     }
@@ -110,8 +110,8 @@ public class LoginActivity extends AppCompatActivity {
     // --- MENU --- //
     private void createMenu() {
         // Set buttons
-        ImageButton menuBtn = findViewById(R.id.login_menuBtn);
-        menuBtn.setOnClickListener(this::showMenu);
+
+        binding.loginMenuBtn.setOnClickListener(this::showMenu);
     }
 
     private void showMenu(View anchor) {
@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private Locale getNextLang() {
-        return new Locale(getCurrentLang().toLanguageTag().startsWith("en") ? "fr" : "en");
+        return getCurrentLang().toLanguageTag().equals("en") ? Locale.getDefault() : new Locale("en");
     }
 
     private Locale getCurrentLang() {

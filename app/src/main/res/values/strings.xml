@@ -8,6 +8,7 @@
     <string name="activity_liste_name">Liste</string>
     <string name="activity_product_details_name">Détails</string>
     <string name="navigation_panier">Voir mon panier</string>
+    <string name="navigation_account">Voir mon compte</string>
     <string name="navigation_language">Changer langue</string>
 
     <!-- TOASTS -->
@@ -19,6 +20,12 @@
     <string name="login_Entrez_mdp">Entrez votre mot de passe</string>
     <string name="login_btn_connection">Connection</string>
 
+    <!-- ACCOUNT -->
+    <string name="account_pub">Publicité</string>
+    <string name="account_mdp">Mot de passe</string>
+    <string name="account_rate_review">Mettre une note sur l\'application</string>
+    <string name="account_rate_review_bad">Oh, désolé de l\'entendre</string>
+    <string name="account_rate_review_good">Youpi</string>
     <!-- CATEGORY -->
     <string name="category_fruits">Fruits et Légumes</string>
     <string name="category_cereals">Produits céréaliers et légumineuses</string>
@@ -110,5 +117,4 @@
     <string name="confirmation_texte">Voulez-vous vraiment acheter le panier?</string>
     <string name="confirmation_btn_oui">Oui</string>
     <string name="confirmation_btn_non">Non</string>
-    <string name="purchase_confirmed">Votre achat de ${0} a été réalisé sans problème!</string>
 </resources>

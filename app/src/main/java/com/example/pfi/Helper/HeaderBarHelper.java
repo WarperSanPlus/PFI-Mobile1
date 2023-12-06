@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.media.Image;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,5 +35,7 @@ public abstract class HeaderBarHelper {
         panierBtn.setOnClickListener(v -> {
             IntentHelper.moveToActivityWithTransition(activity, ActivityPanier.class, null);
         });
+
+        ImageButton accountBtn = activity.findViewById(R.id.headerBar_btnAccount);
     }
 }

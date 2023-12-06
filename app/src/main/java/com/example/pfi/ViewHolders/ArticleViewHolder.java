@@ -1,7 +1,5 @@
 package com.example.pfi.ViewHolders;
 
-import android.content.res.ColorStateList;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -12,9 +10,8 @@ import androidx.annotation.NonNull;
 
 import com.example.pfi.Abstract.AdaptorViewHolder;
 import com.example.pfi.Classes.Article;
-import com.example.pfi.Classes.Client;
+import com.example.pfi.Client;
 import com.example.pfi.Helper.StringHelper;
-import com.example.pfi.Logger;
 import com.example.pfi.R;
 
 public class ArticleViewHolder extends AdaptorViewHolder<Article> {
@@ -56,7 +53,6 @@ public class ArticleViewHolder extends AdaptorViewHolder<Article> {
 
     private void updateItemAmount(Article item, int amount) {
         Client.getPanier().addItem(item, amount);
-
         int newAmount = Client.getPanier().getItemAmount(item);
 
         setAmountBtn(moreBtn, newAmount != item.getStockAmount());

@@ -6,12 +6,18 @@
     <string name="activity_liste_name">List</string>
     <string name="activity_product_details_name">Details</string>
     <string name="navigation_panier">Review my purchases</string>
+    <string name="navigation_account">See my account</string>
     <string name="navigation_language">Change language</string>
     <string name="login_error">Your username or your password is incorrect</string>
     <string name="login_titre">Login</string>
     <string name="login_Entrez_nom">Enter your username</string>
     <string name="login_Entrez_mdp">Enter your password</string>
     <string name="login_btn_connection">Connexion</string>
+    <string name="account_pub">Adds</string>
+    <string name="account_mdp">Password</string>
+    <string name="account_rate_review_bad">Oh sorry to hear that</string>
+    <string name="account_rate_review_good">Yay</string>
+    <string name="account_rate_review">Rating this app</string>
     <string name="article_no_name">No name</string>
     <string name="article_no_description">No description</string>
     <string name="article_no_price">No price</string>
@@ -67,5 +73,4 @@
     <string name="confirmation_texte">Are you sure you want to buy all of this?</string>
     <string name="confirmation_btn_oui">Yes</string>
     <string name="confirmation_btn_non">No</string>
-    <string name="purchase_confirmed">Your purchase totalling to ${0} was correctly proccessed!</string>
 </resources>

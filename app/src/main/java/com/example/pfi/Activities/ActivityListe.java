@@ -2,32 +2,45 @@ package com.example.pfi.Activities;
 
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.widget.ImageButton;
+
 import com.example.pfi.Classes.Article;
 import com.example.pfi.Classes.Category;
-import com.example.pfi.Classes.Client;
+import com.example.pfi.Client;
 import com.example.pfi.Dialogs.ProductPreviewDialog;
 import com.example.pfi.Fragments.CategoryListeFragment;
 import com.example.pfi.Helper.DialogHelper;
 import com.example.pfi.Helper.FragmentHelper;
 import com.example.pfi.Helper.HeaderBarHelper;
+import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.Helper.SoundHelper;
 import com.example.pfi.R;
+import com.example.pfi.databinding.ActivityListeBinding;
 
 import java.util.ArrayList;
 
 // TODO : CONVERT CATEGORY DISPLAY TO RECYCLER VIEW
 // TODO : FIX RELOAD DUPLICATES
 public class ActivityListe extends AppCompatActivity {
+    ActivityListeBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liste);
+       // setContentView(R.layout.activity_liste);
+        binding = DataBindingUtil.setContentView (ActivityListe.this, R.layout.activity_liste);
 
         HeaderBarHelper.setHeaderBar(this, R.string.activity_liste_name);
 
         displayCategories(Client.categories, R.id.listeActivity_itemListe);
+
+        ImageButton btn_account = findViewById(R.id.headerBar_btnAccount);
+        btn_account.setOnClickListener(view ->{
+            IntentHelper.closeAndMove(this, ActivityAccount.class, null);
+        });
     }
 
     /**
