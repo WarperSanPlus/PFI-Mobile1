@@ -1,6 +1,5 @@
 # TODO
 # WIP
-- [ ] 2+ vidéos (Confirmer achat, Account)
 # DONE
 - [x] Produit (Article)
 - [x] 4+ images
@@ -24,6 +23,7 @@
 - [x] DataBinding
 - [x] Client
 - [x] 5 activités (Login, Liste, Details, Panier, Account)
+- [x] 2+ vidéos (Confirmer achat, Account)
 # CANCELLED
 - [ ] Fix reload duplicates
 - [ ] Remove unnecessary listeners
