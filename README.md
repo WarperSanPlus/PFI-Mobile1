@@ -1,9 +1,6 @@
 # TODO
 # WIP
-- [ ] 5 activités (Login, Liste, Details, Panier)
-- [ ] Client
 - [ ] 2+ vidéos (Confirmer achat, Account)
-- [ ] DataBinding
 # DONE
 - [x] Produit (Article)
 - [x] 4+ images
@@ -24,6 +21,9 @@
 - [x] Panier
 - [x] 8 commentaires Javadocs (classes, méthodes, noms des auteurs)
 - [x] Icon de l'app
+- [x] DataBinding
+- [x] Client
+- [x] 5 activités (Login, Liste, Details, Panier, Account)
 # CANCELLED
 - [ ] Fix reload duplicates
 - [ ] Remove unnecessary listeners
