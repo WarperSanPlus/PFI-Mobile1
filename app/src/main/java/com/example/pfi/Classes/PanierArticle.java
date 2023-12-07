@@ -30,6 +30,21 @@ public class PanierArticle extends Panier<Article> {
     }
 
     // endregion
+
+    @Override
+    protected void onConsume(Article item, int amount) {
+        for (Category c : Client.categories)
+        {
+            Article a = c.getArticle(item, (article, article2) -> article.compareTo(article2) == 0);
+
+            if (a == null)
+                continue;
+
+            a.removeStockAmount(amount);
+            break;
+        }
+    }
+
     // region Total
 
     /**

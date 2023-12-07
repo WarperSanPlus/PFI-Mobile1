@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/category_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -25,13 +26,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"
-                android:textColor="?attr/main_title"
                 android:text="@string/placeholder"
                 android:textAlignment="textStart"
+                android:textColor="?attr/main_title"
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/category_btn_seeArticles"
                 android:layout_width="92dp"
                 android:layout_height="50dp"

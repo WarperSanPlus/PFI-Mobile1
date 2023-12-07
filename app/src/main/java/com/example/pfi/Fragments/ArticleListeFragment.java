@@ -70,6 +70,7 @@ public class ArticleListeFragment extends Fragment {
         ImageView iconImage = v.findViewById(R.id.articleDisplay_iconImage);
         iconImage.setImageResource(article.getIconId());
 
+
         // Set onClick to open the dialog
         v.setOnClickListener(view -> {
             Activity a = this.getActivity();
@@ -81,5 +82,9 @@ public class ArticleListeFragment extends Fragment {
         });
 
         return v;
+    }
+
+    public void updateStockImage() {
+        this.getView().findViewById(R.id.articleDisplay_outOfStock).setVisibility(article.getStockAmount() == 0 ? View.VISIBLE : View.INVISIBLE);
     }
 }

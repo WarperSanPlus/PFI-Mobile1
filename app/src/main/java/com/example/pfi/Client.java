@@ -43,13 +43,11 @@ public class Client {
         return Instance;
     }
 
-
-
     /**
      * @return Is the given password valid for this username.
      */
-    public static boolean isPasswordValid(String username, String password){
-        return password.equals("Password");
+    public static boolean isPasswordValid(String username, String password) {
+        return username.length() != 0 && password.equals("Password");
     }
 
 

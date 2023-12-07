@@ -26,6 +26,11 @@ import com.example.pfi.databinding.ActivityLoginBinding;
 
 import java.util.Locale;
 
+/**
+ * Activité de connexion
+ * @author Rosalie Boyer & Samuel Gauthier
+ * @version (DD/MM/YYYY) 07/12/2023
+ */
 public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding binding;
     private EditText edit_nom;
@@ -41,10 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         ResourcesManager.Context = this;
 
         // if automatic login is checked
-         /*   if (Config.ENABLE_AUTOMATIC_LOGIN) {
+         if (Config.ENABLE_AUTOMATIC_LOGIN) {
             Logger.log("*** Automatically logged in ***");
             onSuccessfulLogin("DEBUG_CLIENT", "DEFAULT");
-        }*/
+        }
 
         edit_nom = findViewById(R.id.login_edit_nom);
         edit_mdp = findViewById(R.id.login_edit_mdp);

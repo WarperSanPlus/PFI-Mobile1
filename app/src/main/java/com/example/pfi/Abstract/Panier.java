@@ -44,6 +44,16 @@ public abstract class Panier<T extends Product> {
         items.clear();
         onUpdate();
     }
+
+    public void consume() {
+        for (PanierItem i : items) {
+            onConsume(i.item, i.getAmount());
+        }
+        clear();
+    }
+
+    protected void onConsume(T item, int amount) { }
+
     // endregion
     // region Get item informations
     /**

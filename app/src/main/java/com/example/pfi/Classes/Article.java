@@ -15,6 +15,8 @@ import com.example.pfi.R;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import kotlin.random.Random;
+
 public class Article extends Product {
     // region Nom
     private @StringRes int nomId = R.string.article_no_name;
@@ -115,7 +117,7 @@ public class Article extends Product {
             String displayName = "";
             String description = "";
             String price = "";
-            String quantity = "3"; // Default
+            String quantity = Random.Default.nextInt(10) + ""; // Random stock if not set
 
             while (parser.next() != XmlPullParser.END_TAG) {
                 if (parser.getEventType() != XmlPullParser.START_TAG)

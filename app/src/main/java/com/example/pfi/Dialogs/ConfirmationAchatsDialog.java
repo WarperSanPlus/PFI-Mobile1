@@ -15,7 +15,8 @@ import com.example.pfi.Classes.PanierArticle;
 import com.example.pfi.Helper.IntentHelper;
 import com.example.pfi.R;
 public class ConfirmationAchatsDialog extends DialogFragment  {
-    private PanierArticle panier;
+    private final PanierArticle panier;
+    private boolean requestConsume = false;
     public ConfirmationAchatsDialog(PanierArticle panier) { this.panier = panier;}
 
     @Override
@@ -33,13 +34,10 @@ public class ConfirmationAchatsDialog extends DialogFragment  {
 
         // Add onClick for 'Oui' button   ->user buying
         v.findViewById(R.id.confirmation_btn_oui).setOnClickListener(view -> {
+            requestConsume = true;
 
             VideoView video = v.findViewById(R.id.confirmation_video);
             videoSet(video);
-
-            panier.clear();
-            //this.dismiss(); // Close dialog
-
         });
 
         //------------Create Dialog---------------//
@@ -50,28 +48,30 @@ public class ConfirmationAchatsDialog extends DialogFragment  {
         builder.setView(v);
         return builder.create();
     }
+
+    @Override
+    public void onDestroy() {
+        if (requestConsume)
+        {
+            panier.consume();
+            getActivity().finish();
+        }
+
+        super.onDestroy();
+    }
+
     private void videoSet (VideoView video){
 
-        MediaController mediaController = new MediaController(getActivity().getApplicationContext());
-        mediaController.setAnchorView(video);
+        //MediaController mediaController = new MediaController(getActivity().getApplicationContext());
+        //mediaController.setAnchorView(video);
         Uri url = Uri.parse("android.resource://com.example.pfi/" + R.raw.confirmation_achat_success);
 
-        video.setMediaController(mediaController);
+        //video.setMediaController(mediaController);
         video.setVideoURI(url);
         video.requestFocus();
         video.start();
+        video.setVisibility(View.VISIBLE);
 
-        video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-
-               getActivity().finish();
-
-            }
-        });
+        video.setOnCompletionListener(mp -> this.dismiss());
     }
-
-
 }
-
-

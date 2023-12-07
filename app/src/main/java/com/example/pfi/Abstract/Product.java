@@ -11,6 +11,10 @@ public abstract class Product implements Serializable, Comparable<Product> {
     private int stockRemaining;
 
     public int getStockAmount() { return stockRemaining; }
+
+    public void removeStockAmount(int amount) {
+        stockRemaining -= amount;
+    }
     // endregion
 
     public Product(int stockRemaining) {

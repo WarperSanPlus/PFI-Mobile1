@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pfi.Classes.Article;
@@ -80,7 +81,6 @@ public class CategoryListeFragment extends Fragment {
 
         TextView categoryName = v.findViewById(R.id.categoryNameTV);
         categoryName.setText(name);
-        ImageButton btn_see_Articles = v.findViewById(R.id.category_btn_seeArticles);
 
         // Create fragments
         FragmentHelper.createFragments(
@@ -93,7 +93,9 @@ public class CategoryListeFragment extends Fragment {
         articlesGrid = v.findViewById(R.id.categoryDisplay_articlesGrid);
 
         //click on arrow
-        btn_see_Articles.setOnClickListener(view ->{
+        ImageView btn_see_Articles = v.findViewById(R.id.category_btn_seeArticles);
+
+        View.OnClickListener onClickListener = v1 -> {
             // Sound effect
             SoundHelper.playSound(mp, R.raw.liste_see_more_less);
 
@@ -113,8 +115,11 @@ public class CategoryListeFragment extends Fragment {
 
             articlesGrid.setVisibility(visibility);
             btn_see_Articles.setBackground(getResources().getDrawable(backgroundId));
-        });
+        };
 
+
+        v.findViewById(R.id.category_title).setOnClickListener(onClickListener);
+        //btn_see_Articles.setOnClickListener(onClickListener);
 
         // Hide empty categories
         if (articles.size() == 0) {

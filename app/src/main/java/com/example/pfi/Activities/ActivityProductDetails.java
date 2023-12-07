@@ -53,6 +53,7 @@ public class ActivityProductDetails extends AppCompatActivity {
         //basket already has item?
         int btnPanierText = Client.getPanier().hasItem(article) ? R.string.remove_from_panier : R.string.add_to_panier;
         binding.detailsActionPanier.setText(btnPanierText);
+        binding.detailsActionPanier.setVisibility(article.getStockAmount() == 0 ? View.INVISIBLE : View.VISIBLE);
 
         // Click btn_actionPanier
         binding.detailsActionPanier.setOnClickListener(view -> {
