@@ -111,7 +111,6 @@ public class LoginActivity extends AppCompatActivity {
         mp = null;
     }
 
-
     // --- MENU --- //
     private void createMenu() {
         // Set buttons
@@ -149,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private Locale getNextLang() {
-        return getCurrentLang().toLanguageTag().equals("en") ? Locale.getDefault() : new Locale("en");
+        return new Locale(getCurrentLang().toLanguageTag().equals("en") ? "fr" : "en");
     }
 
     private Locale getCurrentLang() {
